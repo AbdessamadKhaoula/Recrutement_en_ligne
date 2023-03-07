@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>s'inscrire!</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div class="container">
+            <h2>Curriculum Vitae</h2>
+        <form method="post" action="">
+            <fieldset>
+                <legend>Informations personnelles</legend>
+                <table>
+                    <tr>
+                        <td><label for="photo">Photo</label>:</td>
+                        <td><input type="file" name="photo" id="photo" required/> </td>
+                    </tr>
+                    <tr>
+                        <td><label for="nom">Nom</label>:</td>
+                        <td><input type="text" name="nom" id="nom" required/> </td>
+                    </tr>
+                    <tr>
+                        <td><label for="prenom">Prenom</label>:</td>
+                        <td><input type="text" name="prenom" id="prenom" required/></td> 
+                    </tr>
+                    <tr>
+                        <td><label for="mail">E-mail</label>:</td>
+                        <td><input type="email" name="mail" id="mail" required/> </td>
+                    </tr>
+                    <tr>
+                        <td><label for="tele">Numéro de téléphone</label>:</td>
+                        <td><input type="tel" name="tele" id="tele" required/> </td>
+                    </tr>
+                    <tr>
+                        <td><label for="adresse">Adresse</label>:</td>
+                        <td><input type="text" name="adresse" id="adresse" required/> </td>
+                    </tr>
+                    <tr>
+                        <td><label for="profil">Profil</label>:</td>
+                        <td><textarea id="profil" name="profil" cols="40" r="5"></textarea></td>
+                    </tr>
+
+                </table>
+
+            </fieldset>
+            <br>
+            <div id="formations">
+                <fieldset >
+                    <legend>Formations</legend>
+                    <table >
+                        <tr>
+                            <td><label for="nomFor">Nom :</label></td>
+                            <td><input type="text" name="formation_nom[]" id="nomFor"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="etablisement">Nom d'établisement:</label></td>
+                            <td><input type ="text" id="etablisement" name="etablisement[]"/></td>
+                        </tr>
+                        <tr>
+                            <td><label for="dateDebut">Date début:</label></td>
+                            <td><input type ="date" id="dateDebut" name="dateDebut[]"/></td>
+                        </tr>
+                        <tr>
+                            <td><label for="dateFin">Date fin:</label></td>
+                            <td><input type ="date" id="dateFin" name="dateFin[]"/></td>
+                        </tr>
+                        <tr>
+                            <td><button type="button" onclick="ajouterFormation()">Ajouter une formation</button></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </div>
+            <br>
+            <div id="expriences">
+                <fieldset >
+                    <legend>Expriences Professionnelles</legend>
+                    <table>
+                        <tr>
+                            <td><label for="nomExp">Nom :</label></td>
+                            <td><input type="text" name="exp_nom[]" id="nomExp"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="societe">Nom de la societe:</label></td>
+                            <td><input type ="text" id="societe" name="societe[]"/></td>
+                        </tr>
+                        <tr>
+                            <td><label for="type">Stage ou emploi?</label></td>
+                            <td>
+                                <div class="rd">
+                                    <input type ="radio" id="stage" name="type[]" value="stage"/>
+                                    <label for="stage">Stage</label>
+                                    <input type ="radio" id="emploi" name="type[]" value="emploi"/>
+                                    <label for="stage">Emploi</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="dateDebut">Date début:</label></td>
+                            <td><input type ="date" id="dateDebut" name="dateDebut[]"/></td>
+                        </tr>
+                        <tr>
+                            <td><label for="dateFin">Date fin:</label></td>
+                            <td><input type ="date" id="dateFin" name="dateFin[]"/></td>
+                        </tr>
+                        <tr>
+                            <td><button type="button" onclick="ajouterExprience()">Ajouter une exprience</button></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </div>
+            <br>
+        </form>
+        </div>
+        <script>
+            function ajouterFormation() {
+                var divFormations = document.getElementById("formations");
+                divFormations.appendChild(document.createElement("br"));
+                var nouvelFieldset = document.createElement("fieldset");
+                var nouvelleLegende = document.createElement("legend");
+                nouvelleLegende.innerHTML = "Formations";
+                nouvelFieldset.appendChild(nouvelleLegende);
+
+                var nouveauLabelNom = document.createElement("label");
+                nouveauLabelNom.className="formation";
+                nouveauLabelNom.innerHTML = "Nom:";
+                nouvelFieldset.appendChild(nouveauLabelNom);
+                var nouvelInputNom = document.createElement("input");
+                nouvelInputNom.setAttribute("type", "text");
+                nouvelInputNom.setAttribute("name", "formation_nom[]");
+                nouvelFieldset.appendChild(nouvelInputNom);
+                nouvelFieldset.appendChild(document.createElement("br"));
+
+                var nouveauLabelEtablissemet = document.createElement("label");
+                nouveauLabelEtablissemet.className="formation";
+                nouveauLabelEtablissemet .innerHTML = "Nom d'établisement:";
+                nouvelFieldset.appendChild(nouveauLabelEtablissemet );
+                var nouvelInputEtablissemet  = document.createElement("input");
+                nouvelInputEtablissemet.setAttribute("type", "text");
+                nouvelInputEtablissemet.setAttribute("name", "etablisement[]");
+                nouvelFieldset.appendChild(nouvelInputEtablissemet);
+                nouvelFieldset.appendChild(document.createElement("br"));
+
+                var nouveauLabelDebut = document.createElement("label");
+                nouveauLabelDebut.className="formation";
+                nouveauLabelDebut.innerHTML = "Date de début:";
+                nouvelFieldset.appendChild(nouveauLabelDebut);
+                var nouvelInputDebut = document.createElement("input");
+                nouvelInputDebut.setAttribute("type", "date");
+                 nouvelInputDebut.setAttribute("name", "formation_date_debut[]");
+                nouvelFieldset.appendChild(nouvelInputDebut);
+                nouvelFieldset.appendChild(document.createElement("br"));
+
+                var nouveauLabelFin = document.createElement("label");
+                nouveauLabelFin.className="formation";
+                nouveauLabelFin.innerHTML = "Date de fin:";
+                nouvelFieldset.appendChild(nouveauLabelFin);
+                var nouvelInputFin = document.createElement("input");
+                nouvelInputFin.setAttribute("type", "date");
+                nouvelInputFin.setAttribute("name", "formation_date_fin[]");
+                nouvelFieldset.appendChild(nouvelInputFin);
+                nouvelFieldset.appendChild(document.createElement("br"));
+
+                divFormations.appendChild(nouvelFieldset);
+                var boutonSupprimer = document.createElement("button");
+                boutonSupprimer.innerHTML = "Supprimer";
+                boutonSupprimer.addEventListener("click", function() {
+                nouvelFieldset.parentNode.removeChild(nouvelFieldset);
+                });
+                nouvelFieldset.appendChild(boutonSupprimer);
+           }
+           function ajouterExprience() {
+                var divExp = document.getElementById("expriences");
+                divExp.appendChild(document.createElement("br"));
+                var nouvelFieldset = document.createElement("fieldset");
+                var nouvelleLegende = document.createElement("legend");
+                nouvelleLegende.innerHTML = "Expriences Professionnelles";
+                nouvelFieldset.appendChild(nouvelleLegende);
+
+                var nouveauLabelNom = document.createElement("label");
+                nouveauLabelNom.className="exprience";
+                nouveauLabelNom.innerHTML = "Nom:";
+                nouvelFieldset.appendChild(nouveauLabelNom);
+                var nouvelInputNom = document.createElement("input");
+                nouvelInputNom.setAttribute("type", "text");
+                nouvelInputNom.setAttribute("name", "exp_nom[]");
+                nouvelFieldset.appendChild(nouvelInputNom);
+                nouvelFieldset.appendChild(document.createElement("br"));
+
+                var nouveauLabelSociete = document.createElement("label");
+                nouveauLabelSociete.className="exprience";
+                nouveauLabelSociete .innerHTML = "Nom de la societe:";
+                nouvelFieldset.appendChild(nouveauLabelSociete );
+                var nouvelInputSociete  = document.createElement("input");
+                nouvelInputSociete.setAttribute("type", "text");
+                nouvelInputSociete.setAttribute("name", "societe[]");
+                nouvelFieldset.appendChild(nouvelInputSociete);
+                nouvelFieldset.appendChild(document.createElement("br"));
+
+                var nouveauLabelType = document.createElement("label");
+                nouveauLabelType.className="exprience";
+                nouveauLabelType .innerHTML = "Stage ou Emploi?";
+                nouvelFieldset.appendChild(nouveauLabelType );
+                var nouvelInputType  = document.createElement("input");
+                nouvelInputType.setAttribute("type", "text");
+                nouvelInputType.setAttribute("name", "type[]");
+                nouvelFieldset.appendChild(nouvelInputType);
+                nouvelFieldset.appendChild(document.createElement("br"));
+
+                var nouveauLabelDebut = document.createElement("label");
+                nouveauLabelDebut.className="exprience";
+                nouveauLabelDebut.innerHTML = "Date de début:";
+                nouvelFieldset.appendChild(nouveauLabelDebut);
+                var nouvelInputDebut = document.createElement("input");
+                nouvelInputDebut.setAttribute("type", "date");
+                 nouvelInputDebut.setAttribute("name", "formation_date_debut[]");
+                nouvelFieldset.appendChild(nouvelInputDebut);
+                nouvelFieldset.appendChild(document.createElement("br"));
+
+                var nouveauLabelFin = document.createElement("label");
+                nouveauLabelFin.className="exprience";
+                nouveauLabelFin.innerHTML = "Date de fin:";
+                nouvelFieldset.appendChild(nouveauLabelFin);
+                var nouvelInputFin = document.createElement("input");
+                nouvelInputFin.setAttribute("type", "date");
+                nouvelInputFin.setAttribute("name", "formation_date_fin[]");
+                nouvelFieldset.appendChild(nouvelInputFin);
+                nouvelFieldset.appendChild(document.createElement("br"));
+
+                divExp.appendChild(nouvelFieldset);
+                var boutonSupprimer = document.createElement("button");
+                boutonSupprimer.innerHTML = "Supprimer";
+                boutonSupprimer.addEventListener("click", function() {
+                nouvelFieldset.parentNode.removeChild(nouvelFieldset);
+                });
+                nouvelFieldset.appendChild(boutonSupprimer);
+           }
+          </script>
+          <style>
+            .exprience,.formation{
+                display: inline-block;
+                width: 50%;
+            }
+            h2{
+                background-color: #052b26;
+                color: rgb(156, 238, 238);
+                text-align: center;
+                padding: 10px;
+                border-radius: 5px;
+            }
+            h2:hover{
+                background-color: rgb(156, 238, 238);
+                color: #052b26;
+                box-shadow: 3px 3px 4px rgb(65, 92, 94);
+            }
+            
+            textarea,input[type="text"],
+            input[type="email"],input[type="date"],
+            .rd,input[type="tel"],fieldset{
+                border: 1px rgb(102, 188, 190) solid;
+                border-radius: 5px;
+                padding: 5px;
+            }
+            legend{
+                color: #052b26;
+                border: 1px rgb(102, 188, 190) solid;
+                border-radius: 4px;
+            }
+            body{
+                display: flex;
+                justify-content: center;
+            }
+            .container{
+                width: 60%;
+            }
+          </style>
+    </body>
+</html>
