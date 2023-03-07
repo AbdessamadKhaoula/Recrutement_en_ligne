@@ -111,9 +111,53 @@
                 </fieldset>
             </div>
             <br>
+            <div id="Langues">
+                <fieldset>
+                    <legend>Langues</legend>
+                    <table>
+                        <tr>
+                            <td><label for="langue">Langue :</label></td>
+                            <td><input type="text" name="langue[]" id="langue"></td>
+                        </tr>
+                        <tr>
+                            <td><button type="button" onclick="ajouterLangue()">Ajouter une langue</button></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </div>
+            <br>
         </form>
         </div>
         <script>
+            function ajouterLangue() {
+                var divLangues = document.getElementById("Langues");
+                divLangues.appendChild(document.createElement("br"));
+                var nouvelFieldset = document.createElement("fieldset");
+                var nouvelleLegende = document.createElement("legend");
+                nouvelleLegende.innerHTML = "Langues";
+                nouvelFieldset.appendChild(nouvelleLegende);
+
+                var nouveauLabelLangue = document.createElement("label");
+                nouveauLabelLangue.className="langue";
+                nouveauLabelLangue.innerHTML = "Langue :";
+                nouvelFieldset.appendChild(nouveauLabelLangue);
+                var nouvelInputLangue = document.createElement("input");
+                nouvelInputLangue.setAttribute("type", "text");
+                nouvelInputLangue.setAttribute("name", "langue[]");
+                nouvelFieldset.appendChild(nouvelInputLangue);
+                nouvelFieldset.appendChild(document.createElement("br"));
+                divLangues.appendChild(nouvelFieldset);
+
+                divLangues.appendChild(nouvelFieldset);
+                var boutonSupprimer = document.createElement("button");
+                boutonSupprimer.innerHTML = "Supprimer";
+                boutonSupprimer.addEventListener("click", function() {
+                nouvelFieldset.parentNode.removeChild(nouvelFieldset);
+                });
+                nouvelFieldset.appendChild(boutonSupprimer);
+           }
+
             function ajouterFormation() {
                 var divFormations = document.getElementById("formations");
                 divFormations.appendChild(document.createElement("br"));
@@ -238,7 +282,7 @@
            }
           </script>
           <style>
-            .exprience,.formation{
+            .langue,.exprience,.formation{
                 display: inline-block;
                 width: 50%;
             }
