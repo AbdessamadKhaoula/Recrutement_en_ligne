@@ -1,0 +1,53 @@
+.case,fieldset >label{
+    display: inline-block;
+    width: 30%;
+    margin: 5px 0;
+}
+h2{
+    background-color: #052b26;
+    color: rgb(156, 238, 238);
+    text-align: center;
+    padding: 10px;
+    border-radius:0px 20px ;
+}
+h2:hover{
+    background:linear-gradient(rgb(83, 140, 145),rgb(178, 236, 238));
+    color: #052b26;
+    box-shadow: 3px 3px 4px rgb(65, 92, 94);
+}
+
+textarea,input,fieldset{
+    border: 1px rgb(102, 188, 190) solid;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px 0;
+    box-shadow:2px 2px 5px rgb(65, 92, 94);
+} 
+form{
+    border: 1px rgb(63, 131, 131) solid;
+    border-radius:0px 20px ;
+    padding: 20px;
+    box-shadow:2px 0px 4px rgb(65, 92, 94);
+}
+legend{
+    background-color: rgb(162, 230, 231);
+    color: #052b26;
+    border: 1px rgb(102, 188, 190) solid;
+    border-radius: 4px;
+    padding: 2px;
+}
+body{
+    display: flex;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+.container{
+    width: 70%;
+}
+button{
+    background:linear-gradient(rgb(195, 241, 243),rgb(109, 187, 194));
+    color: #1a1a1a;
+    border: 1px rgb(21, 66, 66) solid;
+    border-radius: 4px;
+    padding: 3px;
+}
