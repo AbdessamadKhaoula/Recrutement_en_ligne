@@ -1,32 +1,53 @@
-.case,fieldset >label{
+fieldset label{
     display: inline-block;
     width: 30%;
-    margin: 5px 0;
+    margin: 4px 0;
 }
 h2{
-    background-color: #052b26;
+    background-color: rgb(3, 24, 21);
     color: rgb(156, 238, 238);
     text-align: center;
     padding: 10px;
     border-radius:0px 20px ;
+    transition: 0.2s;
 }
 h2:hover{
     background:linear-gradient(rgb(83, 140, 145),rgb(178, 236, 238));
     color: #052b26;
     box-shadow: 3px 3px 4px rgb(65, 92, 94);
 }
-
-textarea,input,fieldset{
+input,legend,textarea,select{
+    width: 45%;
+}
+input[type="submit"],
+input[type="reset"]{
+    background:linear-gradient(rgb(36, 15, 114),rgb(89, 124, 238));
+    color: #ffffff;
+    border-radius: 7px;
+    padding: 7px;
+    width: 30%;
+    box-shadow:4px 4px 5px rgb(34, 93, 97);
+}
+input[type="submit"]:hover,
+input[type="reset"]:hover{
+    box-shadow: 3px 3px 4px rgb(214, 217, 218);
+    position: relative;
+    bottom: 0px;
+}
+fieldset{
+     background-color: rgba(75,154,255, 0.1);
+}
+textarea,input,fieldset,select{
     border: 1px rgb(102, 188, 190) solid;
     border-radius: 5px;
-    padding: 5px;
-    margin: 5px 0;
+    padding: 4px;
+    margin: 4px 0;
     box-shadow:2px 2px 5px rgb(65, 92, 94);
 } 
 form{
     border: 1px rgb(63, 131, 131) solid;
     border-radius:0px 20px ;
-    padding: 20px;
+    padding: 4%;
     box-shadow:2px 0px 4px rgb(65, 92, 94);
 }
 legend{
@@ -36,13 +57,32 @@ legend{
     border-radius: 4px;
     padding: 2px;
 }
-body{
-    display: flex;
-    justify-content: center;
-    font-family: 'Courier New', Courier, monospace;
+section{
+    position: absolute;
+    top: 80px;
+    left: 25%;
+    max-width: 700px;
+    width: 50%;
 }
-.container{
-    width: 70%;
+@media  screen and (max-width:800px){
+    section{
+        left: 17%;
+        width: 66%;
+        max-width: 500px;
+    }
+}
+@media  screen and (max-width:700px){
+    section{
+        left: 15%;
+        width: 70%;
+        max-width: 500px;
+    }
+}
+@media  screen and (max-width:300px){
+    section{
+        left: 10%;
+        width: 80%;
+    }
 }
 button{
     background:linear-gradient(rgb(195, 241, 243),rgb(109, 187, 194));
@@ -50,4 +90,5 @@ button{
     border: 1px rgb(21, 66, 66) solid;
     border-radius: 4px;
     padding: 3px;
+    width: 35%;
 }

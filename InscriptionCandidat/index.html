@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../Formulaire_CV/navbar.css">
+        <title>login & registration</title>
+
+    </head>
+    <body>
+        <header>
+            <div class="logo">Recrutement</div>
+            <div class="BarBtn">
+                <div class="ligne"></div>
+                <div class="ligne"></div>
+                <div class="ligne"></div>
+            </div>
+            <nav class="nav-bar">
+                <ul>
+                    <li>
+                        <a href="">Acceuil</a>
+
+                    </li>
+                    <li>
+                        <a href="Candidat_CV.php">Candidats</a>
+
+                    </li>
+                    <li>
+                        <a href="">Admin</a>
+
+                    </li>
+                    <li>
+                        <a href="">Recreteurs</a>
+
+                    </li>
+                    <li>
+                        <a href="">Contacts</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+        <section>
+            <div class="container">
+                <div class="form login">
+                    <span class="title">Se connecter</span>
+                    <form method="post" action="#">
+                        <div class="input-field">
+                            <input type="email" placeholder="Enter son eamil" required>
+                            <i class="uil uil-envelope icon"></i>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" placeholder="Enter son mot de passe" required>
+                            <i class="uil uil-lock icon"></i>
+                        </div>
+                        <!--<div class="chekbox-text">
+                            <div class="checkbox-content">
+                                <input type="checkbox" id="logCheck">
+                                <label for="logCheck" class="text">Souveniens-toi de moi</label>
+                            </div>-->
+
+                            <a href="#" class="text">Mot de passe oublié</a>
+                        <!--</div>-->
+
+                        <div class="input-field button">
+                            <input type="submit" value="Login new" >
+                           
+                        </div>
+                    </form>
+
+                    <div class="login-signup">
+                    <span class="text">Not a member?
+                        <a href="SinUp.html" class="text signup-text"> Sign up new</a>
+
+                    </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </main>
+                
+
+        <script>src="script.js"</script>
+        <script>
+            btn=document.querySelector(".BarBtn");
+            btn.onclick=function(){
+                navbar=document.querySelector(".nav-bar");
+                navbar.classList.toggle("active"); 
+            }
+        </script>
+
+    </body>
+</html>
