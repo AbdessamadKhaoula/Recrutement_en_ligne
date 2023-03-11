@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RecruitNow</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="Acceuil.css">
+        <link rel="stylesheet" href="Formulaire_CV/navbar.css">
+
+    </head>
+    <body>
+        
+    <header>
+            <div class="logo">RecruitNow</div>
+            <div class="BarBtn">
+                <div class="ligne"></div>
+                <div class="ligne"></div>
+                <div class="ligne"></div>
+            </div>
+            <nav class="nav-bar">
+                <ul>
+                    <li>
+                        <a href="index.html">Acceuil</a>
+
+                    </li>
+                    <li>
+                        <a href="../InscriptionCandidat/index.html">Candidats</a>
+
+                    </li>
+                    <li>
+                        <a href="">Admin</a>
+
+                    </li>
+                    <li>
+                        <a href="">Recreteurs</a>
+
+                    </li>
+                    <li>
+                        <a href="#Contacts">Contacts</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <section>
+        </section>
+        <script>
+            btn=document.querySelector(".BarBtn");
+            btn.onclick=function(){
+                navbar=document.querySelector(".nav-bar");
+                navbar.classList.toggle("active"); 
+            }
+        </script>
+    </body>
+</html>

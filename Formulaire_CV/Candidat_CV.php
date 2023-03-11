@@ -10,7 +10,7 @@
     <body>
         
     <header>
-            <div class="logo">Recrutement</div>
+            <div class="logo">RecruitNow</div>
             <div class="BarBtn">
                 <div class="ligne"></div>
                 <div class="ligne"></div>
@@ -19,11 +19,11 @@
             <nav class="nav-bar">
                 <ul>
                     <li>
-                        <a href="">Acceuil</a>
+                        <a href="../index.html">Acceuil</a>
 
                     </li>
                     <li>
-                        <a href="Candidat_CV.php">Candidats</a>
+                        <a href="../InscriptionCandidat/index.html">Candidats</a>
 
                     </li>
                     <li>
@@ -35,7 +35,7 @@
 
                     </li>
                     <li>
-                        <a href="">Contacts</a>
+                        <a href="#Contacts">Contacts</a>
                     </li>
                 </ul>
             </nav>
