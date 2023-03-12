@@ -1,0 +1,90 @@
+.main{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(116, 189, 199);
+}
+main{
+    flex-grow: 1;
+}
+html,body{
+    height: 100%;
+}
+body{
+    background-color: #304141;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+footer{
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 100%;
+}
+.icon{
+    width: 90px;
+    height: 90px;
+    border-radius: 90px;
+    background: #fff;
+    margin: 20px;
+    text-align: center;
+    font-size: 40px;
+    line-height: 100px;
+    font-family: sans-serif;
+    overflow: hidden;
+    box-shadow: 5px 10px 20px rgba(150, 150, 150, .3);
+    transition: all .3s ease-out;
+}
+.icon:hover{
+    width: 400px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #fff;
+}
+.icon:hover i{
+    color: #fff;
+}
+.icon .fa-facebook-f{
+    color: #1A6ED8;
+}
+.fb:hover{
+    background: #1A6ED8;
+}
+.icon .fa-twitter{
+    color: #1DA1F2;
+}
+.twt:hover{
+    background: #1DA1F2;
+}
+.icon .fa-linkedin-in{
+    color: #0077B5;
+}
+.lnk:hover{
+    background: #0077B5;
+}
+.icon .fa-github{
+    color: #000;
+}
+.git:hover{
+    background: #000;
+}
+.icon .fa-youtube{
+    color: #FE0000;
+}
+.yt:hover{
+    background: #FE0000;
+}
+.icon a{
+    color: #fff;
+}
+/* responsive */
+@media  screen  and (max-width: 991px) {
+    .main{
+        flex-direction: column;
+    }
+}
