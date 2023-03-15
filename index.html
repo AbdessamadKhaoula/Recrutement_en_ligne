@@ -1,114 +1,59 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>RecruitNow</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="Accueil.css">
-        <link rel="stylesheet" href="Formulaire_CV/navbar.css">
-        <script src="https://kit.fontawesome.com/b356ad9dc8.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="footer.css">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>We Hiring</title>
+    <link rel="stylesheet" href="styleR.css">
 
-    </head>
-    <body>
-        
-    <header>
-            <div class="logo">RecruitNow</div>
-            <div class="BarBtn">
-                <div class="ligne"></div>
-                <div class="ligne"></div>
-                <div class="ligne"></div>
+</head>
+<body>
+    <div class="container">
+
+    </div>
+    <div id="slide" class="carousel slide container w-75">
+        <ol class="carousel-indicators">
+            <li data-target="#slide" data-slide-to="0" class="active"></li>
+            <li data-target="#slide" data-slide-to="1" class="active"></li>
+            <li data-target="#slide" data-slide-to="2" class="active"></li>
+            <li data-target="#slide" data-slide-to="3" class="active"></li>
+            <li data-target="#slide" data-slide-to="4" class="active"></li>
+            <li data-target="#slide" data-slide-to="5" class="active"></li>
+            <li data-target="#slide" data-slide-to="6" class="active"></li>
+            <li data-target="#slide" data-slide-to="7" class="active"></li>
+        </ol>
+        <!--div contains all images-->
+        <div class="carousel-inner">
+            <div class="carousel-item">
+                <img src="photos\istockphoto-507957116-612x612.jpg" alt="1 image" class="w-100">
             </div>
-            <nav class="nav-bar">
-                <ul>
-                    <li>
-                        <a href="index.html">Acceuil</a>
-
-                    </li>
-                    <li>
-                        <a href="InscriptionCandidat/index.html">Candidats</a>
-
-                    </li>
-                    <li>
-                        <a href="">Admin</a>
-
-                    </li>
-                    <li>
-                        <a href="">Recreteurs</a>
-
-                    </li>
-                    <li>
-                        <a href="#Contacts">Contacts</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <section>
-                <h1>Bienvenue sur RecruitNow</h1>
-                <br>
-                <div class="container">
-                    <p>
-                        la plateforme de recrutement en ligne qui simplifie et accélère le processus
-                         de recrutement pour les employeurs et les candidats. 
-                    </p>
-                    <p>
-                        Notre entreprise a été créée avec la mission de rendre le recrutement plus efficace, 
-                        plus équitable et plus transparent. Nous croyons que tout le monde mérite une chance 
-                        égale de trouver l'emploi de ses rêves, et notre application de recrutement en ligne 
-                        facilite cette recherche en connectant les meilleurs candidats aux meilleures offres d'emploi.
-                    </p>
-                    <p>
-                        Avec des offres d'emploi mises à jour quotidiennement,
-                         une CVthèque de qualité supérieure et des fonctionnalités de recrutement avancées.
-                    </p>
-                    <p>
-                        RecruitNow est l'outil idéal pour les employeurs qui cherchent à trouver les meilleurs
-                         talents et pour les candidats qui cherchent à trouver leur prochaine opportunité de carrière.
-                          Explorez notre site dès maintenant pour découvrir comment RecruitNow peut vous aider 
-                          à trouver l'emploi de vos rêves ou à recruter les meilleurs talents.
-                    </p>
-                </div>
-            </section>
-        </main>
-        <footer id="Contacts">
-            <div class="main">
-                <!-- Facebook Icon -->
-                <div class="icon fb">
-                    <i class="fa-brands fa-facebook-f"></i>
-                    <a href="">Facebook</a>
-                </div>
-        
-                <!-- Twitter Icon -->
-                <div class="icon twt">
-                    <i class="fa-brands fa-twitter"></i>
-                    <a href="">Twitter</a>
-                </div>
-        
-                <!-- Linkedin Icon -->
-                <div class="icon lnk">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                    <a href="">LinkedIn</a>
-                </div>
-        
-                <!-- GitHub Icon -->
-                <div class="icon git">
-                    <i class="fa-brands fa-github"></i>
-                    <a href="">GitHub</a>
-                </div>
-        
-                <!-- YouTube Icon -->
-                <div class="icon yt">
-                    <i class="fa-brands fa-youtube"></i>
-                    <a href="">YouTube</a>
-                </div>
+            <div class="carousel-item">
+                <img src="photos\istockphoto-1071363120-612x612.jpg" alt="2 image" class="w-100">
             </div>
-        </footer>
-        <script>
-            btn=document.querySelector(".BarBtn");
-            btn.onclick=function(){
-                navbar=document.querySelector(".nav-bar");
-                navbar.classList.toggle("active"); 
-            }
-        </script>
-    </body>
+            <div class="carousel-item">
+                <img src="photos\istockphoto-1134291628-612x612.jpg" alt="3 image" class="w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="photos\istockphoto-1173054931-612x612.jpg" alt="4 image" class="w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="photos\istockphoto-1312071041-612x612.jpg" alt="5 image" class="w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="node.jpeg" alt="6 image" class="w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="photos\istockphoto-1331999115-612x612.jpg" alt="7 image" class="w-100">
+            </div>
+            <div class="carousel-item active">
+                <img src="photos\istockphoto-1345965403-612x612.jpg" alt="8 image" class="w-100">
+            </div>
+        </div>
+        <a href="#slide" class="carousel-control-next" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+        <a href="#slide" class="carousel-control-prev" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+    </div>
+</body>
 </html>
