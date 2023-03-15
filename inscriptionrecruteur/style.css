@@ -79,7 +79,7 @@ section{
     color: #4070f4;
 }
 
-.input-field i.icon1{
+.input-field i.icon{
     left: 0;
 }
 /*
@@ -115,10 +115,8 @@ section{
     margin-top: 35px;
 
 }
-.form .button button{
+.form .button input{
     border: none;
-    width: 100%;
-    padding: 10px;
     color: #fff;
     font-size: 17px;
     font-weight: 500;
@@ -129,7 +127,7 @@ section{
     transition: all 0.3s ease;
 }
 
-.button button:hover{
+.button input:hover{
     background-color: #265df2;
 }
 
@@ -137,23 +135,6 @@ section{
     margin-top: 30px;
     text-align: center ;
 }
-
-.input-field.success input {
-    border-color: #09c372;
-}
-
-.input-field.error input {
-    border-color: #ff3860;
-}
-
-.input-field .erreur {
-    color: #ff3860;
-    font-size: 9px;
-    height: 13px;
-}
-
-
-
 
 
 

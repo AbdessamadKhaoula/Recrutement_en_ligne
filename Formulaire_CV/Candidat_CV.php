@@ -10,8 +10,7 @@
         <script src="Form.js"></script>
     </head>
     <body>
-        
-    <header>
+        <header>
             <div class="logo">RecruitNow</div>
             <div class="BarBtn">
                 <div class="ligne"></div>
@@ -29,11 +28,7 @@
 
                     </li>
                     <li>
-                        <a href="">Admin</a>
-
-                    </li>
-                    <li>
-                        <a href="">Recreteurs</a>
+                        <a href="../inscriptionrecreteur/index.html">Recreteurs</a>
 
                     </li>
                     <li>
@@ -46,7 +41,7 @@
         <section>
             <h2>Curriculum Vitae</h2>
             <br>
-            <form method="post" action="cv.php">
+            <form method="POST" action="infoCV.php">
                 <fieldset>
                     <legend>Informations personnelles</legend>
   
@@ -64,12 +59,10 @@
                        
                     <label for="adresse">Adresse: </label>   
                     <input type="text" name="adresse" id="adresse" required/> <br>    
-                       
-                    <label for="profil">Profil:</label>  
-                    <textarea id="profil" name="profil" cols="21" r="4"></textarea>  <br>
-
-                    <label for="photo">Photo:</label>    
-                    <input type="file" name="photo" id="photo" required/> <br>  
+        
+                    <label for="photo">CV:</label>    
+                    <input type="file" name="cv" id="cv" required/> <br>  
+                
                 </fieldset>
                 <br>
                 <div id="formations">
@@ -141,8 +134,7 @@
                         <legend>Les Qualités</legend>
                         <label for="qualite">Nom :</label>    
                         <input type="text" name="qualites[]" id="qualite"> <br>   
-
-                        <button type="button" onclick="ajouterQualite()">Ajouter une qualite</button>      
+                        <button type="button" onclick="ajouterQualite()">Ajouter une qualite</button>     
                     </fieldset>
                 </div>
                 <br>
@@ -187,6 +179,10 @@
                                 ?>
                             </select>
                         </div>
+                        <div>
+                        <label for="dureeExp">La durée d'expriences:</label>
+                        <input type="number" min='0'>
+                        </div>
                     </fieldset>
                 </div>
                 <br>
@@ -195,8 +191,7 @@
             </form>
         </section>
         </main>
-        <footer id="Contacts">
-            <div class="main">
+        <div class="main" id="Contacts">
                 <!-- Facebook Icon -->
                 <div class="icon fb">
                     <i class="fa-brands fa-facebook-f"></i>
@@ -227,8 +222,6 @@
                     <a href="">YouTube</a>
                 </div>
             </div>
-        </footer>
-        
         <script>
             btn=document.querySelector(".BarBtn");
             btn.onclick=function(){
