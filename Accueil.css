@@ -10,3 +10,11 @@ h1{
 .container{
     font: 1.5em sans-serif;
 }
+.container p{
+    border: 1px rgb(158, 161, 161) solid;
+    padding: 5px;
+    margin: 10px;
+    background:linear-gradient(to right,rgb(17, 36, 117), rgb(90, 139, 141));
+    color: aliceblue;
+    border-radius: 15px;
+}

@@ -3,6 +3,8 @@
     <head>
         <title>s'inscrire!</title>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Form.css">
         <link rel="stylesheet" href="navbar.css">
         <script src="https://kit.fontawesome.com/b356ad9dc8.js" crossorigin="anonymous"></script>

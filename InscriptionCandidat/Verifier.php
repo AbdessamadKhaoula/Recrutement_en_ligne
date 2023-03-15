@@ -1,21 +1,21 @@
 <?php
-  require_once('../connexion.php');
+require_once('../connexion.php');
+
+
+if (isset($_POST['mail']) && isset($_POST['mdp'])) {
+  $mail = $_POST['mail'];
+  $mdp=password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+
+  $stmt = $conn->prepare('SELECT MailCandidat, PasswordCandidat FROM candidats WHERE MailCandidat = ? AND PasswordCandidat = ?');
+  $stmt->execute([$mail, $mdp]);
+
   
-  $mail=$_POST['mail'];
-  $mdp=$_POST['mdp'];
-
-  $res=$conn->query('SELECT MailCandidat,PasswordCandidat FROM candidats');
-  $rows=$res->fetchAll(PDO::FETCH_ASSOC);
-  $i=0;
-  foreach($rows as $row) { 
-    if($mail==$row['MailCandidat'] && $mdp==$row['PasswordCandidat']){ 
-        $i=$i+1;
+  if ($stmt->rowCount() == 1) {
+    
+    header('Location:../Formulaire_CV/Candidat_CV.php');
     exit;
-    }
+  } else {
+    header('Location: SignUp.html');
+  }
 }
-if($i==1){
-    header('Location:SignUp.html');
-}
-else echo('error');
-
 ?>

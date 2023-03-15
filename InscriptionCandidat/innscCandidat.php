@@ -3,10 +3,11 @@
   $nom=$_POST['nom'];
   $prenom=$_POST['prenom'];
   $mail=$_POST['mail'];
-  $mdp=$_POST['mdp'];
+  $mdp=password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+  
 
   $sql="INSERT INTO candidats(NomCandidat,PrenomCandidat,MailCandidat,PasswordCandidat)  
-  VALUES ('$nom', '$prenom', '$mail', PASSWORD('$mdp'))";
+  VALUES ('$nom', '$prenom', '$mail', '$mdp')";
 
   $conn->query($sql);
 
