@@ -41,6 +41,7 @@
             </nav>
         </header>
         <main>
+        <img src="../imgs/ImgRec.png" alt="recrutementImage">
         <section>
             <div class="container">
                 <div class="form login">
@@ -63,9 +64,9 @@
                     </form>
 
                     <div class="login-signup">
-                    <span class="text">Not a member?
-                        <a href="SignUp.php" class="text signup-text"> Sign up new</a>
-                    </span>
+                        <span class="text">Not a member?
+                            <a href="SignUp.php" class="text signup-text"> Sign up new</a>
+                        </span>
                     </div>
                 </div>
             </div>

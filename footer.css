@@ -6,6 +6,13 @@
     justify-content: center;
     background: rgb(240, 240, 240);
 }
+
+img{
+   float: left;
+   width: 30%;
+   height: auto;
+
+}
 section{
     margin: 100px 0px;
 }
@@ -69,7 +76,7 @@ section{
 }
 
 /* responsive */
-@media only screen and (min-width: 320px) and (max-width: 991px) {
+@media only screen and (max-width: 991px) {
     .main{
         flex-direction: column;
     }

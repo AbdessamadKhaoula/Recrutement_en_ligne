@@ -4,8 +4,8 @@ h1{
     background: linear-gradient(rgb(1, 2, 5) ,rgb(98, 99, 98));
     color: #3ccfc8;
     text-align: center;
-    text-shadow: 2px 2px 3px rgb(180, 185, 126);
     border-radius: 20px 5px;
+    box-shadow:3px 3px 6px #323838;
 }
 .container{
     font: 1.5em sans-serif;
@@ -17,4 +17,7 @@ h1{
     background:linear-gradient(to right,rgb(17, 36, 117), rgb(90, 139, 141));
     color: aliceblue;
     border-radius: 15px;
+}
+strong{
+    color: rgb(197, 255, 247);
 }

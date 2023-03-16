@@ -42,22 +42,20 @@
             <h1 id="titre"></h1>
             <br>
             <div class="container">
+                
                 <p>
+                    <img src="imgs/index.png" alt="recrutementImage">
                     la plateforme de recrutement en ligne qui simplifie et accélère le processus
-                     de recrutement pour les employeurs et les candidats. 
-                </p>
-                <p>
+                     de recrutement pour les employeurs et les candidats. <br><br>
                     Notre entreprise a été créée avec la mission de rendre le recrutement plus efficace, 
                     plus équitable et plus transparent. Nous croyons que tout le monde mérite une chance 
                     égale de trouver l'emploi de ses rêves, et notre application de recrutement en ligne 
                     facilite cette recherche en connectant les meilleurs candidats aux meilleures offres d'emploi.
-                </p>
-                <p>
+                    <br><br>
                     Avec des offres d'emploi mises à jour quotidiennement,
                      une CVthèque de qualité supérieure et des fonctionnalités de recrutement avancées.
-                </p>
-                <p>
-                    RecruitNow est l'outil idéal pour les employeurs qui cherchent à trouver les meilleurs
+                     <br><br>
+                    <strong >RecruitNow </strong>est l'outil idéal pour les employeurs qui cherchent à trouver les meilleurs
                      talents et pour les candidats qui cherchent à trouver leur prochaine opportunité de carrière.
                       Explorez notre site dès maintenant pour découvrir comment RecruitNow peut vous aider 
                       à trouver l'emploi de vos rêves ou à recruter les meilleurs talents.
