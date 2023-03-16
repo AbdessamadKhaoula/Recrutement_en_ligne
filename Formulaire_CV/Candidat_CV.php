@@ -22,15 +22,15 @@
             <nav class="nav-bar">
                 <ul>
                     <li>
-                        <a href="../index.html">Accueil</a>
+                        <a href="index.php">Accueil</a>
 
                     </li>
                     <li>
-                        <a href="../InscriptionCandidat/index.html">Candidats</a>
+                        <a href="InscriptionCandidat/index.php">Candidats</a>
 
                     </li>
                     <li>
-                        <a href="../inscriptionrecreteur/index.html">Recreteurs</a>
+                        <a href="inscriptionrecruteur/index.php">Recreteurs</a>
 
                     </li>
                     <li>
@@ -145,11 +145,7 @@
                         <legend>Informations Supplémentaires</legend>
                         <?php
                            // Connexion à la base de données MySQL
-                           $host = "localhost";
-                           $dbname = "recrutement_en_ligne";
-                           $username = "root";
-                           $password = "";
-  
+                           require_once('../connexion.php');
                               $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
                                   $res=$pdo->query('SELECT *FROM Domaines');
                                   $rows=$res->fetchAll(PDO::FETCH_ASSOC);
@@ -193,37 +189,7 @@
             </form>
         </section>
         </main>
-        <div class="main" id="Contacts">
-                <!-- Facebook Icon -->
-                <div class="icon fb">
-                    <i class="fa-brands fa-facebook-f"></i>
-                    <a href="">Facebook</a>
-                </div>
-        
-                <!-- Twitter Icon -->
-                <div class="icon twt">
-                    <i class="fa-brands fa-twitter"></i>
-                    <a href="">Twitter</a>
-                </div>
-        
-                <!-- Linkedin Icon -->
-                <div class="icon lnk">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                    <a href="">Linkedin</a>
-                </div>
-        
-                <!-- GitHub Icon -->
-                <div class="icon git">
-                    <i class="fa-brands fa-github"></i>
-                    <a href="">GitHub</a>
-                </div>
-        
-                <!-- YouTube Icon -->
-                <div class="icon yt">
-                    <i class="fa-brands fa-youtube"></i>
-                    <a href="">YouTube</a>
-                </div>
-            </div>
+        <?php    include('../footer.php')  ?>
         <script>
             btn=document.querySelector(".BarBtn");
             btn.onclick=function(){

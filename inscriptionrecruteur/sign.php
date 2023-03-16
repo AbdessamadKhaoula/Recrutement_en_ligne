@@ -10,6 +10,7 @@
         <script src="https://kit.fontawesome.com/b356ad9dc8.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../footer.css">
         <title>Sign Up</title>
+
     </head>
     <body>
         <header>
@@ -22,15 +23,15 @@
             <nav class="nav-bar">
                 <ul>
                     <li>
-                        <a href="../index.html">Accueil</a>
+                        <a href="../index.php">Accueil</a>
 
                     </li>
                     <li>
-                        <a href="index.html">Candidats</a>
+                        <a href="../inscriptionCandidat/index.php">Candidats</a>
 
                     </li>
                     <li>
-                        <a href="../inscriptionrecruteur/index.html">Recreteurs</a>
+                        <a href="index.php">Recreteurs</a>
 
                     </li>
                     <li>
@@ -45,35 +46,30 @@
                 <div class="form login">
                      <span class="title">Creér un compte</span>
  
-                     <form id="form" method="post" action="InnscCandidat.php">
+                     <form method="post" action="#">
                          <div class="input-field">
-                             <input type="text" placeholder="enter ton prénom" name="prenom"  id="prenom" required>
+                             <input type="text" placeholder="enter ton prénom" required>
                              <i class="uil uil-user"></i>
-                             <div class="erreur"></div>
                          </div>
                          <div class="input-field">
-                             <input type="text" placeholder="enter ton nom"  name="nom" id="nom" required>
+                             <input type="text" placeholder="enter ton nom" required>
                              <i class="uil uil-user"></i>
-                             <div class="erreur"></div>
                          </div>
  
                          <div class="input-field">
-                             <input type="email" placeholder="enter ton email"  name="mail" id="mail" required>
+                             <input type="email" placeholder="enter ton email" required>
                              <i class="uil uil-envelope icon1"></i>
-                             <div class="erreur"></div>
                          </div>
  
                          <div class="input-field">
-                             <input type="password" placeholder="enter le mdp" name="mdp"id="mdp"  required>
+                             <input type="password" placeholder="enter le mdp" required>
                              <i class="uil uil-lock icon1"></i>
-                             <div class="erreur"></div>
                              
                          </div>
  
                          <div class="input-field">
-                             <input type="password" placeholder="confirmer le mdp"  name="mdp1"id="mdp1" required>
+                             <input type="password" placeholder="confirmer le mdp" required>
                              <i class="uil uil-lock icon1"></i>
-                             <div class="erreur"></div>
                          </div>
                          <!--<div class="chekbox-text">
                              <div class="checkbox-content">
@@ -85,45 +81,19 @@
                      <!--   </div>--> 
  
                          <div class="input-field button">
-                            <button type="submit">Sign Up</button>
+                             <input type="submit" value="Sign up now" >
+                            
                          </div>
+ 
+ 
                      </form>
              </div>
          </div>
+ 
         </section>
         </main>
-        <div class="main" id="Contacts">
-            <!-- Facebook Icon -->
-            <div class="icon fb">
-                <i class="fa-brands fa-facebook-f"></i>
-                <a href="">Facebook</a>
-            </div>
-    
-            <!-- Twitter Icon -->
-            <div class="icon twt">
-                <i class="fa-brands fa-twitter"></i>
-                <a href="">Twitter</a>
-            </div>
-    
-            <!-- Linkedin Icon -->
-            <div class="icon lnk">
-                <i class="fa-brands fa-linkedin-in"></i>
-                <a href="">Linkedin</a>
-            </div>
-    
-            <!-- GitHub Icon -->
-            <div class="icon git">
-                <i class="fa-brands fa-github"></i>
-                <a href="">GitHub</a>
-            </div>
-    
-            <!-- YouTube Icon -->
-            <div class="icon yt">
-                <i class="fa-brands fa-youtube"></i>
-                <a href="">YouTube</a>
-            </div>
-        </div>
         
+        <?php     include('../footer.php');  ?>
         <script>src="script.js"</script>
         <script>
             btn=document.querySelector(".BarBtn");
@@ -132,5 +102,6 @@
                 navbar.classList.toggle("active"); 
             }
         </script>
+
     </body>
 </html>

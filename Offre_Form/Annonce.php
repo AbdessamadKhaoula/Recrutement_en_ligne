@@ -56,20 +56,38 @@
                         </tr>
                         <tr>
                             <td>Domaine:</td>
-                            <td><select>
-                                <option>choisir le domaine</option>
-                                <option>Développment Informatique</option>
-                                <option>Réseaux Informatique</option>
-                                <option>Industriel</option></td>
+                            <td>                           
+                                <select name="domaine" id="domaine" >
+                                 <?php
+                                    // Connexion à la base de données MySQL
+                                     require_once('../connexion.php');
+                                     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+                                     $res=$pdo->query('SELECT *FROM Domaines');
+                                     $rows=$res->fetchAll(PDO::FETCH_ASSOC);
+                                       foreach($rows as $row) { ?>
+                                       <option value="<?php echo $row['idDomaine'];?>">
+                                         <?php echo $row['NomDomaine'];?>
+                                       </option>
+                                         <?php }
+                                     ?>
+                               </select>
+                           </td>
                         </tr>
                         <tr>
                             <td>Catégorie:</td>
-                            <td><select>
-                                <option>choisir le catégorie</option>
-                                <option>Bac</option>
-                                <option>Bac+2</option>
-                                <option>Bac+3</option>
-                                <option>Bac+5</option></select></td>
+                            <td>
+                                <select name="categorie" id="categorie" >
+                                    <?php
+                                    $res=$pdo->query('SELECT *FROM Categories');
+                                    $rows=$res->fetchAll(PDO::FETCH_ASSOC);
+                                    foreach($rows as $row) { ?>
+                                    <option value="<?php echo $row['idCategorie'];?>">
+                                        <?php echo $row['NomCategorie'];?>
+                                    </option>
+                                        <?php }
+                                    ?>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td>Réf:</td>
@@ -106,37 +124,8 @@
             </div>
         </section>
         </main>
-        <div class="main" id="Contacts">
-                <!-- Facebook Icon -->
-                <div class="icon fb">
-                    <i class="fa-brands fa-facebook-f"></i>
-                    <a href="">Facebook</a>
-                </div>
         
-                <!-- Twitter Icon -->
-                <div class="icon twt">
-                    <i class="fa-brands fa-twitter"></i>
-                    <a href="">Twitter</a>
-                </div>
-        
-                <!-- Linkedin Icon -->
-                <div class="icon lnk">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                    <a href="">Linkedin</a>
-                </div>
-        
-                <!-- GitHub Icon -->
-                <div class="icon git">
-                    <i class="fa-brands fa-github"></i>
-                    <a href="">GitHub</a>
-                </div>
-        
-                <!-- YouTube Icon -->
-                <div class="icon yt">
-                    <i class="fa-brands fa-youtube"></i>
-                    <a href="">YouTube</a>
-                </div>
-            </div>
+        <?php     include('../footer.php');  ?>
         <script>
             btn=document.querySelector(".BarBtn");
             btn.onclick=function(){

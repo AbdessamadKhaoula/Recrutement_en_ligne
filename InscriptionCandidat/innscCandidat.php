@@ -10,6 +10,7 @@
   VALUES ('$nom', '$prenom', '$mail', '$mdp')";
 
   $conn->query($sql);
+  header('Location: index.html');
 
 
 ?>

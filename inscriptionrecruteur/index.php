@@ -23,15 +23,15 @@
             <nav class="nav-bar">
                 <ul>
                     <li>
-                        <a href="../index.html">Accueil</a>
+                        <a href="../index.php">Accueil</a>
 
                     </li>
                     <li>
-                        <a href="index.html">Candidats</a>
+                        <a href="../InscriptionCandidat/index.php">Candidats</a>
 
                     </li>
                     <li>
-                        <a href="../inscriptionrecruteur/index.html">Recreteurs</a>
+                        <a href="index.php">Recreteurs</a>
 
                     </li>
                     <li>
@@ -45,63 +45,35 @@
             <div class="container">
                 <div class="form login">
                     <span class="title">Se connecter</span>
-                    <form method="post" action="Verifier.php">
+                    <form method="post" action="#">
                         <div class="input-field">
-                            <input type="email" placeholder="Enter ton mail" name="mail" required>
+                            <input type="email" placeholder="Enter ton mail" required>
                             <i class="uil uil-envelope icon1"></i>
                         </div>
                         <div class="input-field">
-                            <input type="password" placeholder="Enter le mot de passe" name="mdp"  required>
+                            <input type="password" placeholder="Enter le mot de passe" required>
                             <i class="uil uil-lock icon1"></i>
                         </div>
-                        
 
                         <div class="input-field button">
-                            <button type="submit">Login now</button>
+                            <input type="submit" value="Login now" >
                            
                         </div>
                     </form>
 
                     <div class="login-signup">
                     <span class="text">Not a member?
-                        <a href="SignUp.html" class="text signup-text"> Sign up new</a>
+                        <a href="Sign.php" class="text signup-text"> Sign up new</a>
+
                     </span>
                     </div>
                 </div>
             </div>
         </section>
         </main>
-        <div class="main" id="Contacts">
-            <!-- Facebook Icon -->
-            <div class="icon fb">
-                <i class="fa-brands fa-facebook-f"></i>
-                <a href="">Facebook</a>
-            </div>
-    
-            <!-- Twitter Icon -->
-            <div class="icon twt">
-                <i class="fa-brands fa-twitter"></i>
-                <a href="">Twitter</a>
-            </div>
-    
-            <!-- Linkedin Icon -->
-            <div class="icon lnk">
-                <i class="fa-brands fa-linkedin-in"></i>
-                <a href="">Linkedin</a>
-            </div>
-    
-            <!-- GitHub Icon -->
-            <div class="icon git">
-                <i class="fa-brands fa-github"></i>
-                <a href="">GitHub</a>
-            </div>
-    
-            <!-- YouTube Icon -->
-            <div class="icon yt">
-                <i class="fa-brands fa-youtube"></i>
-                <a href="">YouTube</a>
-            </div>
-        </div>
+            
+        <?php     include('../footer.php');  ?>
+        <script>src="script.js"</script>
         <script>
             btn=document.querySelector(".BarBtn");
             btn.onclick=function(){
