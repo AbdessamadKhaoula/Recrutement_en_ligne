@@ -41,18 +41,18 @@
             </nav>
         </header>
         <main>
-        <img src="../imgs/ImgRec.png" alt="recrutementImage">
+        <img src="../imgs/ImgCan.png" alt="recrutementImage">
         <section>
             <div class="container">
                 <div class="form login">
                     <span class="title">Se connecter</span>
                     <form method="post" action="Verifier.php">
                         <div class="input-field">
-                            <input type="email" placeholder="Enter ton mail" name="mail" required>
+                            <input type="email" placeholder="Enter ton mail" name="mail"value="<?php if(isset($_COOKIE['mail'])) echo $_COOKIE['mail'];?>" required>
                             <i class="uil uil-envelope icon1"></i>
                         </div>
                         <div class="input-field">
-                            <input type="password" placeholder="Enter le mot de passe" name="mdp"  required>
+                            <input type="password" placeholder="Enter le mot de passe" name="mdp" value="<?php if(isset($_COOKIE['mdp'])) echo $_COOKIE['mdp'];?>" required>
                             <i class="uil uil-lock icon1"></i>
                         </div>
                         
@@ -60,6 +60,10 @@
                         <div class="input-field button">
                             <button type="submit">Login now</button>
                            
+                        </div>
+                        <div>
+                            <input type="checkbox" name="check" id="check">
+                            <label for="check">se souvenir de moi</label>
                         </div>
                     </form>
 

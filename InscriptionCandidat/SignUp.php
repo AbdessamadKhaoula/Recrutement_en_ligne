@@ -75,15 +75,7 @@
                              <i class="uil uil-lock icon1"></i>
                              <div class="erreur"></div>
                          </div>
-                         <!--<div class="chekbox-text">
-                             <div class="checkbox-content">
-                                 <input type="checkbox" id="logCheck1">
-                                 <label for="logCheck1" class="text">Remember me</label>
-                             </div>-->
- 
-                             <a href="#" class="text">Mot de passe oublié</a>
-                     <!--   </div>--> 
- 
+                
                          <div class="input-field button">
                             <button type="submit">Sign Up</button>
                          </div>

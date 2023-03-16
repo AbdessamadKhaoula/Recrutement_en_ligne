@@ -1,5 +1,5 @@
 <?php
-require_once('../connexion.php');
+ include "../connexion.php";
 
 
 if (isset($_POST['mail']) && isset($_POST['mdp'])) {
@@ -12,10 +12,10 @@ if (isset($_POST['mail']) && isset($_POST['mdp'])) {
   $candidat=$stmt->fetch();
   if ($candidat && password_verify($mdp,$candidat['PasswordCandidat'])) {
     
-    header('Location:../Formulaire_CV/Candidat_CV.php');
+    header('Location:connexionCan.php');
     exit;
   } else {
-    header('Location: SignUp.html');
+    header('Location: SignUp.php');
   }
 }
 ?>

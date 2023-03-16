@@ -1,5 +1,5 @@
 <?php
-  require_once('../connexion.php');
+  include "../connexion.php";
   $nom=$_POST['nom'];
   $prenom=$_POST['prenom'];
   $mail=$_POST['mail'];
@@ -10,7 +10,7 @@
   VALUES ('$nom', '$prenom', '$mail', '$mdp')";
 
   $conn->query($sql);
-  header('Location: index.html');
+  header('Location: index.php');
 
 
 ?>

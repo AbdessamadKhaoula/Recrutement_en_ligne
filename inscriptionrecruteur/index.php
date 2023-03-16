@@ -41,7 +41,7 @@
             </nav>
         </header>
         <main>
-        <img src="../imgs/ImgCan.png" alt="recrutementImage">
+        <img src="../imgs/ImgRec.png" alt="recrutementImage">
         <section>
             <div class="container">
                 <div class="form login">

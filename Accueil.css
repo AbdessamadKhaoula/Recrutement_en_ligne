@@ -7,6 +7,9 @@ h1{
     border-radius: 20px 5px;
     box-shadow:3px 3px 6px #323838;
 }
+h1:hover{
+    color:rgb(185, 186, 190) ;
+}
 .container{
     font: 1.5em sans-serif;
 }
