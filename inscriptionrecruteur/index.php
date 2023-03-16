@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="../Formulaire_CV/navbar.css">
         <script src="https://kit.fontawesome.com/b356ad9dc8.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../footer.css">
-        <title>login</title>
+        <title>Espace Recreteurs</title>
 
     </head>
     <body>
@@ -46,13 +46,13 @@
             <div class="container">
                 <div class="form login">
                     <span class="title">Se connecter</span>
-                    <form method="post" action="#">
+                    <form method="post" action="VerifierRec.php">
                         <div class="input-field">
-                            <input type="email" placeholder="Enter ton mail" required>
+                            <input type="email" placeholder="Enter ton mail" name="mail" required>
                             <i class="uil uil-envelope icon1"></i>
                         </div>
                         <div class="input-field">
-                            <input type="password" placeholder="Enter le mot de passe" required>
+                            <input type="password" placeholder="Enter le mot de passe" name="mdp" required>
                             <i class="uil uil-lock icon1"></i>
                         </div>
 
@@ -64,7 +64,7 @@
 
                     <div class="login-signup">
                     <span class="text">Not a member?
-                        <a href="Sign.php" class="text signup-text"> Sign up new</a>
+                        <a href="Sign.php" class="text signup-text"> Sign up now</a>
 
                     </span>
                     </div>

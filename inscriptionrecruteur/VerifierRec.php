@@ -6,16 +6,16 @@ if (isset($_POST['mail']) && isset($_POST['mdp'])) {
   $mail = $_POST['mail'];
   $mdp =$_POST['mdp'];
 
-  $stmt = $conn->prepare('SELECT * FROM candidats WHERE mailCandidat = ?');
+  $stmt = $conn->prepare('SELECT * FROM recruteurs WHERE mailRecruteur = ?');
   $stmt->execute([$mail]);
 
   $candidat=$stmt->fetch();
   if ($candidat){
-    $passHash=$candidat['passwordCandidat'];
+    $passHash=$candidat['passwordRecruteur'];
 
   if(password_verify($mdp,$passHash)) {
    
-    header('Location:../Formulaire_CV/Candidat_CV.php');
+  header('location:../Offre_Form/annonce.php');
 
   } else {
     header('Location: index.php');

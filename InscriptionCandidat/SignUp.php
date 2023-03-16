@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="../Formulaire_CV/navbar.css">
         <script src="https://kit.fontawesome.com/b356ad9dc8.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../footer.css">
-        <title>Sign Up</title>
+        <title>Espace Candidats</title>
     </head>
     <body>
         <header>
@@ -45,7 +45,7 @@
                 <div class="form login">
                      <span class="title">Creér un compte</span>
  
-                     <form id="form" method="post" action="InnscCandidat.php">
+                     <form id="form" method="post" action="InscCandidat.php">
                          <div class="input-field">
                              <input type="text" placeholder="enter ton prénom" name="prenom"  id="prenom" required>
                              <i class="uil uil-user"></i>

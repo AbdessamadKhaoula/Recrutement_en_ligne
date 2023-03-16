@@ -6,11 +6,10 @@
   $mdp=password_hash($_POST['mdp'], PASSWORD_DEFAULT);
   
 
-  $sql="INSERT INTO candidats(NomCandidat,PrenomCandidat,MailCandidat,PasswordCandidat)  
+  $sql="INSERT INTO candidats(nomCandidat,prenomCandidat,mailCandidat,passwordCandidat)  
   VALUES ('$nom', '$prenom', '$mail', '$mdp')";
 
   $conn->query($sql);
-  header('Location: index.php');
-
+  header('location:../Formulaire_CV/Candidat_CV.php');
 
 ?>

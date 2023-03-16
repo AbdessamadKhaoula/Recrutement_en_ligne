@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="../Formulaire_CV/navbar.css">
         <script src="https://kit.fontawesome.com/b356ad9dc8.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../footer.css">
-        <title>Sign Up</title>
+        <title>Espace Recreteurs</title>
 
     </head>
     <body>
@@ -46,29 +46,29 @@
                 <div class="form login">
                      <span class="title">Creér un compte</span>
  
-                     <form method="post" action="#">
+                     <form method="post" action="InscRecruteur.php">
                          <div class="input-field">
-                             <input type="text" placeholder="enter ton prénom" required>
+                             <input type="text" placeholder="enter ton prénom" name="prenom" required>
                              <i class="uil uil-user"></i>
                          </div>
                          <div class="input-field">
-                             <input type="text" placeholder="enter ton nom" required>
+                             <input type="text" placeholder="enter ton nom" name="nom"  required>
                              <i class="uil uil-user"></i>
                          </div>
  
                          <div class="input-field">
-                             <input type="email" placeholder="enter ton email" required>
+                             <input type="email" placeholder="enter ton email"name="mail"  required>
                              <i class="uil uil-envelope icon1"></i>
                          </div>
  
                          <div class="input-field">
-                             <input type="password" placeholder="enter le mdp" required>
+                             <input type="password" placeholder="enter le mdp"name="mdp"  required>
                              <i class="uil uil-lock icon1"></i>
                              
                          </div>
  
                          <div class="input-field">
-                             <input type="password" placeholder="confirmer le mdp" required>
+                             <input type="password" placeholder="confirmer le mdp" name="mdp1"  required>
                              <i class="uil uil-lock icon1"></i>
                          </div>
                          <!--<div class="chekbox-text">

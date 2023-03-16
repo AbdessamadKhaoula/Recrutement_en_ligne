@@ -1,11 +1,3 @@
-<?php 
-
-session_start();
-
-if(!isset($_SESSION['mail'])){
-	header('location:../InscriptionCandidat/index.php');
-}else{
-    ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -30,15 +22,15 @@ if(!isset($_SESSION['mail'])){
             <nav class="nav-bar">
                 <ul>
                     <li>
-                        <a href="index.php">Accueil</a>
+                        <a href="../index.php">Accueil</a>
 
                     </li>
                     <li>
-                        <a href="InscriptionCandidat/index.php">Candidats</a>
+                        <a href="../InscriptionCandidat/index.php">Candidats</a>
 
                     </li>
                     <li>
-                        <a href="inscriptionrecruteur/index.php">Recreteurs</a>
+                        <a href="../inscriptionrecruteur/index.php">Recreteurs</a>
 
                     </li>
                     <li>
@@ -207,4 +199,3 @@ if(!isset($_SESSION['mail'])){
         </script>
     </body>
 </html>
-<?php  } ?>
