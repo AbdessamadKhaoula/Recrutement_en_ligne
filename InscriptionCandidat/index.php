@@ -1,3 +1,29 @@
+<?php
+	session_start();
+	@$mail=$_POST["mail"];
+	@$mdp=$_POST["mdp"];
+	@$valider=$_POST["valider"];
+	$message="";
+	if(isset($valider)){
+		include("../connexion.php");
+		$stmt = $conn->prepare('SELECT * FROM candidats WHERE mailCandidat = ?');
+        $stmt->execute([$mail]);
+        $candidat=$stmt->fetch();
+        if ($candidat){ 
+             $passHash=$candidat['passwordCandidat'];
+
+            if(password_verify($mdp,$passHash)) {
+		
+                $_SESSION["autoriser"]="oui";
+                $_SESSION["nomPrenom"]=strtoupper($tab[0]["nomCandidat"]." ".$tab[0]["prenomCandidat"]);
+                header("location:session.php");
+          }
+        }
+         else{
+             $message="<li>Mauvais login ou mot de passe!</li>";
+         }
+	}
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -46,7 +72,7 @@
             <div class="container">
                 <div class="form login">
                     <span class="title">Se connecter</span>
-                    <form method="post" action="Verifier.php">
+                    <form method="post" action="">
                         <div class="input-field">
                             <input type="email" placeholder="Enter ton mail" name="mail" required>
                             <i class="uil uil-envelope icon1"></i>
@@ -58,15 +84,17 @@
                         
 
                         <div class="input-field button">
-                            <button type="submit">Login now</button>
+                            <button type="submit" name="valider">Login now</button>
                            
                         </div>
                         <div>
-                            <input type="checkbox" checked id="check">
+                            <input type="checkbox" id="check">
                             <label for="check">se souvenir de moi</label>
                         </div>
                     </form>
-
+                    <?php if(!empty($message)){ ?>
+                    <div id="message"><?php echo $message ?></div>
+                    <?php } ?>
                     <div class="login-signup">
                         <span class="text">Not a member?
                             <a href="SignUp.php" class="text signup-text"> Sign up now</a>

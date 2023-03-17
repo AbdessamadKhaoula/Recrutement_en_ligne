@@ -43,7 +43,7 @@
         <section>
             <h2>Curriculum Vitae</h2>
             <br>
-            <form method="POST" action="infoCV.php">
+            <form method="POST" action="infoCV.php" enctype="multipart/form-data">
                 <fieldset>
                     <legend>Informations personnelles</legend>
   

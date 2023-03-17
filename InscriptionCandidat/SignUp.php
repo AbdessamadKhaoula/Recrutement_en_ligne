@@ -1,3 +1,26 @@
+<?php
+	@$nom=$_POST["nom"];
+	@$prenom=$_POST["prenom"];
+	@$mail=$_POST["mail"];
+	@$pass=$_POST["mdp"];
+	@$repass=$_POST["mdp1"];
+	@$valider=$_POST["valider"];
+	$message="";
+	if(isset($valider)){
+		if(empty($nom)) $message="<li>Non vide!</li>";
+		if(empty($prenom)) $message.="<li>Prénom vide!</li>";
+		if(empty($mail)) $message.="<li>mail vide!</li>";
+		if(empty($pass)) $message.="<li>Mot de passe vide!</li>";
+		if($pass!=$repass) $message.="<li> vérifier le mot de passe </li>";	
+		if(empty($message)){
+			include("../connexion.php");
+			
+			$ins=$conn->prepare("insert into  candidats(nomCandidat,prenomCandidat,mailCandidat,passwordCandidat)  values(?,?,?,?)");
+			$ins->execute(array($nom,$prenom,$mail,password_hash($_POST['mdp'], PASSWORD_DEFAULT)));
+			header("location:index.php");
+		}
+	}
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -43,9 +66,9 @@
         <section>
             <div class="container">
                 <div class="form login">
-                     <span class="title">Creér un compte</span>
+                     <span class="title">Créer un compte</span>
  
-                     <form id="form" method="post" action="InscCandidat.php">
+                     <form id="form" method="post" action="">
                          <div class="input-field">
                              <input type="text" placeholder="enter ton prénom" name="prenom"  id="prenom" required>
                              <i class="uil uil-user"></i>
@@ -77,9 +100,12 @@
                          </div>
                 
                          <div class="input-field button">
-                            <button type="submit">Sign Up</button>
+                            <button type="submit" name="valider">Sign Up</button>
                          </div>
                      </form>
+                     <?php if(!empty($message)){ ?>
+                    <div id="message"><?php echo $message ?></div>
+                    <?php } ?>
              </div>
          </div>
         </section>
