@@ -19,7 +19,7 @@
         <link rel="stylesheet" href="../Formulaire_CV/navbar.css">
         <script src="https://kit.fontawesome.com/b356ad9dc8.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../footer.css">
-        <title>Espace Candidats</title>
+        <title>Espace Recruteur</title>
     </head>
     <body>
         <header>
@@ -36,15 +36,15 @@
 
                     </li>
                     <li>
-                        <a href="index.php">Candidats</a>
+                        <a href="../InscriptionCandidat/index.php">Candidats</a>
 
                     </li>
                     <li>
-                        <a href="../inscriptionrecruteur/index.php">Recreteurs</a>
+                        <a href="index.php">Recreteurs</a>
 
                     </li>
                     <li>
-                        <a href="#Contacts">Contacts</a>
+                        <a id="active" href="#Contacts">Contacts</a>
                     </li>
                     <li>
                         <a href="deconnexion.php">Deconnecter</a>
@@ -64,7 +64,7 @@
                 </h1>
                 <ul>
                     <li>
-                        <a class="CV" href="../Formulaire_CV/Candidat_CV.php">Remplir vos informations</a>
+                        <a class="CV" href="../Offre_Form/Annonce.php">Remplir vos annonces</a>
                     </li>
                 </ul>
             </section>

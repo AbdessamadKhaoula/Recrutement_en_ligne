@@ -82,14 +82,6 @@ section{
 .input-field i.icon{
     left: 0;
 }
-/*
-.form .chekbox-text{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 20px;
-}*/
-
 .chekbox-text .chekbox-content{
     display: flex;
     align-items: center;
@@ -117,6 +109,8 @@ section{
 }
 .form .button input{
     border: none;
+    width: 100%;
+    padding: 10px;
     color: #fff;
     font-size: 17px;
     font-weight: 500;

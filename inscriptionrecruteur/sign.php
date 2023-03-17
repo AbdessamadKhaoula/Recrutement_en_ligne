@@ -1,3 +1,33 @@
+<?php
+	@$nom=$_POST["nom"];
+	@$prenom=$_POST["prenom"];
+	@$mail=$_POST["mail"];
+	@$pass=$_POST["mdp"];
+	@$repass=$_POST["mdp1"];
+	@$valider=$_POST["valider"];
+	$message="";
+	if(isset($valider)){
+		if(empty($nom)) $message="<li>Non vide!</li>";
+		if(empty($prenom)) $message.="<li>Prénom vide!</li>";
+		if(empty($mail)) $message.="<li>mail vide!</li>";
+		if(empty($pass)) $message.="<li>Mot de passe vide!</li>";
+		if($pass!=$repass) $message.="<li> vérifier le mot de passe </li>";	
+		if(empty($message)){
+			include("../connexion.php");
+            $req=$conn->prepare("select idRecruteur from Recruteurs where mailRecruteur=? limit 1");
+			$req->setFetchMode(PDO::FETCH_ASSOC);
+			$req->execute(array($mail));
+			$tab=$req->fetchAll();
+			if(count($tab)>0)
+			     $message="<li>Mail existe déjà!</li>";
+			else{
+                $ins=$conn->prepare("insert into  Recruteurs(nomRecruteur,prenomRecruteur,mailRecruteur,passwordRecruteur)  values(?,?,?,?)");
+                $ins->execute(array($nom,$prenom,$mail,md5($pass)));
+                header("location:index.php");
+            }
+		}
+	}
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -30,7 +60,7 @@
                         <a href="../inscriptionCandidat/index.php">Candidats</a>
 
                     </li>
-                    <li>
+                    <li id="active">
                         <a href="index.php">Recreteurs</a>
 
                     </li>
@@ -44,9 +74,9 @@
         <section>
             <div class="container">
                 <div class="form login">
-                     <span class="title">Creér un compte</span>
+                     <span class="title">Créer un compte</span>
  
-                     <form method="post" action="InscRecruteur.php">
+                     <form method="post" action="">
                          <div class="input-field">
                              <input type="text" placeholder="enter ton prénom" name="prenom" required>
                              <i class="uil uil-user"></i>
@@ -71,22 +101,15 @@
                              <input type="password" placeholder="confirmer le mdp" name="mdp1"  required>
                              <i class="uil uil-lock icon1"></i>
                          </div>
-                         <!--<div class="chekbox-text">
-                             <div class="checkbox-content">
-                                 <input type="checkbox" id="logCheck1">
-                                 <label for="logCheck1" class="text">Remember me</label>
-                             </div>-->
- 
-                             <a href="#" class="text">Mot de passe oublié</a>
-                     <!--   </div>--> 
  
                          <div class="input-field button">
-                             <input type="submit" value="Sign up now" >
-                            
-                         </div>
+                            <input type="submit" name="valider" value="Login now" >
+                        </div>
+                    </form>
+                    <?php if(!empty($message)){ ?>
+                    <div id="message"><?php echo $message ?></div>
+                    <?php } ?>
  
- 
-                     </form>
              </div>
          </div>
  

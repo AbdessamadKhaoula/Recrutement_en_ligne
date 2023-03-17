@@ -14,10 +14,17 @@
 		if($pass!=$repass) $message.="<li> vérifier le mot de passe </li>";	
 		if(empty($message)){
 			include("../connexion.php");
-			
-			$ins=$conn->prepare("insert into  candidats(nomCandidat,prenomCandidat,mailCandidat,passwordCandidat)  values(?,?,?,?)");
-			$ins->execute(array($nom,$prenom,$mail,password_hash($_POST['mdp'], PASSWORD_DEFAULT)));
-			header("location:index.php");
+            $req=$conn->prepare("select idCandidat from Candidats where mailCandidat=? limit 1");
+			$req->setFetchMode(PDO::FETCH_ASSOC);
+			$req->execute(array($mail));
+			$tab=$req->fetchAll();
+			if(count($tab)>0)
+			     $message="<li>Mail existe déjà!</li>";
+			else{
+                $ins=$conn->prepare("insert into  candidats(nomCandidat,prenomCandidat,mailCandidat,passwordCandidat)  values(?,?,?,?)");
+                $ins->execute(array($nom,$prenom,$mail,md5($pass)));
+                header("location:index.php");
+            }
 		}
 	}
 ?>
@@ -48,8 +55,8 @@
                         <a href="../index.php">Accueil</a>
 
                     </li>
-                    <li>
-                        <a href="index.php">Candidats</a>
+                    <li >
+                        <a href="index.php" >Candidats</a>
 
                     </li>
                     <li>
@@ -72,36 +79,31 @@
                          <div class="input-field">
                              <input type="text" placeholder="enter ton prénom" name="prenom"  id="prenom" required>
                              <i class="uil uil-user"></i>
-                             <div class="erreur"></div>
                          </div>
                          <div class="input-field">
                              <input type="text" placeholder="enter ton nom"  name="nom" id="nom" required>
                              <i class="uil uil-user"></i>
-                             <div class="erreur"></div>
                          </div>
  
                          <div class="input-field">
                              <input type="email" placeholder="enter ton email"  name="mail" id="mail" required>
                              <i class="uil uil-envelope icon1"></i>
-                             <div class="erreur"></div>
                          </div>
  
                          <div class="input-field">
                              <input type="password" placeholder="enter le mdp" name="mdp"id="mdp"  required>
                              <i class="uil uil-lock icon1"></i>
-                             <div class="erreur"></div>
                              
                          </div>
  
                          <div class="input-field">
                              <input type="password" placeholder="confirmer le mdp"  name="mdp1"id="mdp1" required>
                              <i class="uil uil-lock icon1"></i>
-                             <div class="erreur"></div>
                          </div>
                 
                          <div class="input-field button">
-                            <button type="submit" name="valider">Sign Up</button>
-                         </div>
+                            <input type="submit" name="valider" value="Login now" >
+                        </div>
                      </form>
                      <?php if(!empty($message)){ ?>
                     <div id="message"><?php echo $message ?></div>

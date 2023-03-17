@@ -1,27 +1,27 @@
 <?php
 	session_start();
-	@$mail=$_POST["mail"];
-	@$mdp=$_POST["mdp"];
+	@$mail=$_POST["email"];
+	@$mdp=$_POST["pass"];
 	@$valider=$_POST["valider"];
 	$message="";
 	if(isset($valider)){
 		include("../connexion.php");
-		$stmt = $conn->prepare('SELECT * FROM candidats WHERE mailCandidat = ?');
-        $stmt->execute([$mail]);
-        $candidat=$stmt->fetch();
-        if ($candidat){ 
-             $passHash=$candidat['passwordCandidat'];
+		$res=$conn->prepare("select * from Candidats where mailCandidat=? and passwordCandidat=? limit 1");
+		$res->setFetchMode(PDO::FETCH_ASSOC);
+		$res->execute(array($mail,md5($mdp)));
+		$tab=$res->fetchAll();
+		if(count($tab)==0)
+			$message="<li>Mauvais mail ou mot de passe!</li>";
+		else{
 
-            if(password_verify($mdp,$passHash)) {
-		
-                $_SESSION["autoriser"]="oui";
-                $_SESSION["nomPrenom"]=strtoupper($tab[0]["nomCandidat"]." ".$tab[0]["prenomCandidat"]);
-                header("location:session.php");
-          }
-        }
-         else{
-             $message="<li>Mauvais login ou mot de passe!</li>";
-         }
+			$_SESSION["autoriser"]="oui";
+			$_SESSION["nomPrenom"]=strtoupper($tab[0]["nomCandidat"]." ".$tab[0]["prenomCandidat"]);
+            if(isset($_POST['check'])){
+                setcookie('mail',$_POST(['email']),time()+365*24*3600,null,null,false,true);
+                setcookie('mdp',$_POST(['pass']),time()+365*24*3600,null,null,false,true);
+            }
+			header("location:session.php");
+		}
 	}
 ?>
 <!DOCTYPE html>
@@ -69,37 +69,39 @@
         <main>
         <img src="../imgs/ImgCan.png" alt="recrutementImage">
         <section>
+            
             <div class="container">
                 <div class="form login">
                     <span class="title">Se connecter</span>
                     <form method="post" action="">
                         <div class="input-field">
-                            <input type="email" placeholder="Enter ton mail" name="mail" required>
+                            <input type="email" placeholder="Enter ton mail" name="email" required>
                             <i class="uil uil-envelope icon1"></i>
                         </div>
                         <div class="input-field">
-                            <input type="password" placeholder="Enter le mot de passe" name="mdp"  required>
+                            <input type="password" placeholder="Enter le mot de passe" name="pass"  required>
                             <i class="uil uil-lock icon1"></i>
                         </div>
                         
 
                         <div class="input-field button">
-                            <button type="submit" name="valider">Login now</button>
-                           
+                            <input type="submit" name="valider" value="Login now" >
                         </div>
                         <div>
-                            <input type="checkbox" id="check">
+                            <input type="checkbox"  id="check">
                             <label for="check">se souvenir de moi</label>
                         </div>
                     </form>
                     <?php if(!empty($message)){ ?>
                     <div id="message"><?php echo $message ?></div>
                     <?php } ?>
+
                     <div class="login-signup">
                         <span class="text">Not a member?
                             <a href="SignUp.php" class="text signup-text"> Sign up now</a>
                         </span>
                     </div>
+                    
                 </div>
             </div>
         </section>

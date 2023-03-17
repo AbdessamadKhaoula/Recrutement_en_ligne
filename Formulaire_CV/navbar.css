@@ -38,10 +38,7 @@ header{
     transition: 0.2s;
     margin: 0 5px;
 }
-.nav-bar ul li a:active{
-    background-color:rgb(145, 206, 214) ;
-    color: rgb(9, 33, 34) ;
-}
+
 .nav-bar ul li a:hover {
     background-color:rgb(224, 238, 233) ;
     color: rgb(9, 33, 34) ;

@@ -115,7 +115,7 @@ section{
     margin-top: 35px;
 
 }
-.form .button button{
+.form .button input{
     border: none;
     width: 100%;
     padding: 10px;
@@ -129,7 +129,7 @@ section{
     transition: all 0.3s ease;
 }
 
-.button button:hover{
+.button input:hover{
     background-color: #265df2;
 }
 
