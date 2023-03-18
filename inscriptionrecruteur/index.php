@@ -16,8 +16,8 @@
 			$_SESSION["autoriser"]="oui";
 			$_SESSION["nomPrenom"]=strtoupper($tab[0]["nomRecruteur"]." ".$tab[0]["prenomRecruteur"]);
             if(isset($_POST['check'])){
-                setcookie('mail',$_POST(['email']),time()+365*24*3600,null,null,false,true);
-                setcookie('mdp',$_POST(['pass']),time()+365*24*3600,null,null,false,true);
+                setcookie("mail",$_POST['email'],time()+365*24*3600);
+                setcookie("mdp",$_POST['pass'],time()+365*24*3600);
             }
 			header("location:session.php");
 		}
@@ -73,11 +73,11 @@
                     <span class="title">Se connecter</span>
                     <form method="post" action="">
                         <div class="input-field">
-                            <input type="email" placeholder="Enter ton mail" name="email" required>
+                            <input type="email" placeholder="Enter ton mail" name="email" value="<?php if(isset($_COOKIE['mail'])) echo $_COOKIE['mail'] ; ?>" required>
                             <i class="uil uil-envelope icon1"></i>
                         </div>
                         <div class="input-field">
-                            <input type="password" placeholder="Enter le mot de passe" name="pass" required>
+                            <input type="password" placeholder="Enter le mot de passe" name="pass" value="<?php if(isset($_COOKIE['mdp'])) echo $_COOKIE['mdp'] ; ?>" required>
                             <i class="uil uil-lock icon1"></i>
                         </div>
 
@@ -85,7 +85,7 @@
                             <input type="submit" name="valider" value="Login now" >
                         </div>
                         <div>
-                            <input type="checkbox"  id="check">
+                            <input type="checkbox"  id="check" name="check">
                             <label for="check">se souvenir de moi</label>
                         </div>
                     </form>

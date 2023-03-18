@@ -1,3 +1,9 @@
+<?php
+	session_start();
+	if($_SESSION["autoriser"]!="oui"){
+		header("location:../inscriptionrecruteur/index.php");
+	}
+?>
 <!DOCTYPE html>
 <html>
     <head>
