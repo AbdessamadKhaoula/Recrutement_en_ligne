@@ -1,3 +1,9 @@
+<?php
+	session_start();
+	if(!isset($_SESSION["mail"])){
+		header("location:../inscriptionrecruteur/index.php");
+	}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,19 +28,22 @@
             <nav class="nav-bar">
                 <ul>
                     <li>
-                        <a href="../index.html">Accueil</a>
+                        <a href="../index.php">Accueil</a>
 
                     </li>
                     <li>
-                        <a href="../InscriptionCandidat/index.html">Candidats</a>
+                        <a href="../InscriptionCandidat/index.php">Candidats</a>
 
                     </li>
                     <li>
-                        <a href="../inscriptionrecreteur/index.html">Recreteurs</a>
+                        <a href="../inscriptionrecreteur/index.php">Recreteurs</a>
 
                     </li>
                     <li>
                         <a href="#Contacts">Contacts</a>
+                    </li>
+                    <li>
+                        <a href="../inscriptionrecruteur/deconnexion.php">Deconnecter</a>
                     </li>
                 </ul>
             </nav>
@@ -47,17 +56,27 @@
                 </div>
                 <form>
                     <table>
+                       <tr>
+                            <td>E-mail:</td>
+                            <td>
+                                
+                                <input type="email" name="mail" required value="<?php  if(isset($_SESSION['mail'])) echo $_SESSION['mail'] ; ?>" required/>  
+                            </td>
+                        </tr>
                         <tr>
-                            <td>Type:</td> 
-                            <td><select>
-                                <option>choisir le type</option>
-                                <option>Emploi</option>
-                                <option>Stage</option></select></td>
+                            <td>Nom de la societé:</td>
+                            <td><input type="text" name="societe" required></td>
+                        </tr>
+                        <tr>
+                            <td>Emploi ou Stage?</td> 
+                            <td>
+                                <input type="text" name="type" required>
+                            </td>
                         </tr>
                         <tr>
                             <td>Domaine:</td>
                             <td>                           
-                                <select name="domaine" id="domaine" >
+                                <select name="domaine" id="domaine" required>
                                  <?php
                                     // Connexion à la base de données MySQL
                                      require_once('../connexion.php');
@@ -76,7 +95,7 @@
                         <tr>
                             <td>Catégorie:</td>
                             <td>
-                                <select name="categorie" id="categorie" >
+                                <select name="categorie" id="categorie" required>
                                     <?php
                                     $res=$pdo->query('SELECT *FROM Categories');
                                     $rows=$res->fetchAll(PDO::FETCH_ASSOC);
@@ -90,29 +109,20 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Réf:</td>
-                            <td><input type="text" max="10"></td>
-                        </tr>
-                        
-                        <tr>
-                            <td>Type de contrat:</td>
-                            <td><input type="text" max="10"></td>
-                        </tr>
-                        <tr>
-                            <td>Type de stage:</td>
-                            <td><input type="text"></td>
+                            <td>Réference:</td>
+                            <td><input type="text" max="10" name="ref" required></td>
                         </tr>
                         <tr>
                             <td>Poste:</td>
-                            <td><input type="text"></td>
+                            <td><input type="text" required></td>
                         </tr>
                         <tr>
-                            <td>Date fin:</td>
-                            <td><input type="date"></td>
+                            <td>Date de début:</td>
+                            <td><input type="date" name="date" required></td>
                         </tr>
                         <tr>
-                            <td>Texte:</td>
-                            <td><textarea  id="text" cols="40" rows="5" placeholder="Description....."></textarea>
+                            <td>Plus d'informations?</td>
+                            <td><textarea  id="text" cols="40" rows="5" placeholder="Description....." required></textarea>
                                 <p id="indication"></p></td>
                         </tr>
                         <tr>
@@ -135,7 +145,7 @@
 
             var text=document.getElementById("text");
             var indication=document.getElementById("indication");
-            var limit=200;
+            var limit=300;
             indication.innerHTML= 0 + "/" + limit;
             text.addEventListener("input",function(){
             var textlenght=text.value.length;

@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if($_SESSION["autoriser"]!="oui"){
+	if(!isset($_SESSION["mail"])){
 		header("location:index.php");
 	}
 ?>

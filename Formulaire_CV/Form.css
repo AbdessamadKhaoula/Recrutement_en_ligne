@@ -21,7 +21,7 @@ input,legend,textarea,select{
 }
 input[type="submit"],
 input[type="reset"]{
-    background:linear-gradient(rgb(36, 15, 114),rgb(89, 124, 238));
+    background:linear-gradient(rgb(62, 76, 207),rgb(89, 124, 238));
     color: #ffffff;
     border-radius: 7px;
     padding: 7px;
@@ -94,4 +94,5 @@ button{
     border-radius: 4px;
     padding: 3px;
     width: 35%;
+    cursor: pointer;
 }
