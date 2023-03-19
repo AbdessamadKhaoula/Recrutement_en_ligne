@@ -14,7 +14,7 @@
 			$message="<li>Mauvais mail ou mot de passe!</li>";
 		else{
             $_SESSION['mail']=$_POST["email"];
-			$_SESSION["nomPrenom"]=strtoupper($tab[0]["nomCandidat"]." ".$tab[0]["prenomCandidat"]);
+			$_SESSION["Can"]=strtoupper($tab[0]["nomCandidat"]." ".$tab[0]["prenomCandidat"]);
             if(isset($_POST['check'])){
                 setcookie("mail",$_SESSION['mail'],time()+365*24*3600);
                 setcookie("mdp",$_POST['pass'],time()+365*24*3600);
@@ -68,7 +68,7 @@
         <main>
         <img src="../imgs/ImgCan.png" alt="recrutementImage">
         <section>
-            
+            <h1>Espace Candidats</h1>
             <div class="container">
                 <div class="form login">
                     <span class="title">Se connecter</span>

@@ -12,15 +12,15 @@ h1:hover{
 }
 .container{
     font: 1.5em sans-serif;
+    margin: 10px 0px;
 }
 .container p{
     border: 1px rgb(158, 161, 161) solid;
     padding: 5px;
-    margin: 10px;
     background:linear-gradient(to left,rgb(236, 236, 236), rgb(209, 253, 255));
     color: rgb(0, 0, 0);
     border-radius: 15px;
 }
 strong{
-    color: rgb(114, 48, 59);
+    color: rgb(25, 39, 102);
 }

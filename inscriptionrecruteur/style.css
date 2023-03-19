@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
+h1{
+    padding: 5px;
+    background-color: #6086ee;
+    margin: 15px;
+    border-radius: 3px 5px;
+    text-align: center;
+    
+}
 main{
     display: flex;
     height: auto;
@@ -132,3 +139,9 @@ section{
 
 
 
+#message{
+	text-align:center;
+	padding:5px;
+    border-radius: 1px;
+	background-color:rgb(255, 148, 166);
+}

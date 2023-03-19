@@ -1,6 +1,6 @@
 .main{
     width: 100%;
-    height: 80vh;
+    height: 40vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,12 +9,13 @@
 
 img{
    float: left;
-   width: 30%;
-   height: auto;
+   width: 25%;
+   height: 400px;
 
 }
 section{
     margin: 100px 0px;
+    min-height: 450px;
 }
 .icon{
     width: 100px;

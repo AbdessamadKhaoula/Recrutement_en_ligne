@@ -13,14 +13,17 @@ td{
     border-radius: 8px ;
     box-shadow: 0 25px 25px 0 rgb(38, 34, 34);
 }
+@media  screen and (max-width:900px){
+    .div1{
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+}
 .div2{
     background-color:rgb(166, 158, 185);
 }
-select{
-    width: 100%;
-}
-input{
-    width: 100%;
+input,select,textarea{
+    width: 80%;
 }
 textarea,input,select{
     border-radius: 3px;

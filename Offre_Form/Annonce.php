@@ -4,6 +4,28 @@
 	if(!isset($_SESSION["mail"])){
 		header("location:../inscriptionrecruteur/index.php");
 	}
+
+    @$valider=$_POST["valider"];
+	if(isset($valider)){
+        $mail=$_POST["mail"];
+        $societe=$_POST["societe"];
+        $type=$_POST["type"];
+        $domaine=$_POST["domaine"];
+        $categorie=$_POST["categorie"];
+        $ref=$_POST["ref"];
+        $date=$_POST["date"];
+        $description=$_POST["description"];
+        
+		$_SESSION['societe']=$_POST["societe"];
+
+        include("../connexion.php");
+
+        $ins=$conn->prepare("insert into  annonce(mail,societe,type,domaine,categorie,reference,dateDebut,description)  values(?,?,?,?,?,?,?,?)");
+        $ins->execute(array($mail,$societe,$type,$domaine,$categorie,$ref,$date,$description));
+        if($ins)   header("location:../inscriptionrecruteur/session.php");
+
+    }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,7 +59,7 @@
 
                     </li>
                     <li>
-                        <a href="../inscriptionrecreteur/index.php">Recreteurs</a>
+                        <a href="../inscriptionrecruteur/index.php">Recreteurs</a>
 
                     </li>
                     <li>
@@ -51,11 +73,19 @@
         </header>
         <main>
         <section>
+            <h1 style="padding:10px 40px; color:brown;">
+                <?php 
+                    echo ("Bonjour");
+                ?>
+                <span>
+                <?=$_SESSION["Rec"]?>
+                </span>!!
+            </h1>
             <div class="div1">
                 <div class="div2">
                     <h1>Formulaire d'annonce</h1>
                 </div>
-                <form>
+                <form method="POST" action="">
                     <table>
                        <tr>
                             <td>E-mail:</td>
@@ -71,7 +101,10 @@
                         <tr>
                             <td>Emploi ou Stage?</td> 
                             <td>
-                                <input type="text" name="type" required>
+                                <select  name="type" required>
+                                   <option value="Stage">Stage</option>
+                                   <option value="Emploi">Emploi</option>
+                                </select>
                             </td>
                         </tr>
                         <tr>
@@ -81,11 +114,10 @@
                                  <?php
                                     // Connexion à la base de données MySQL
                                      require_once('../connexion.php');
-                                     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-                                     $res=$pdo->query('SELECT *FROM Domaines');
+                                     $res=$conn->query('SELECT *FROM Domaines');
                                      $rows=$res->fetchAll(PDO::FETCH_ASSOC);
                                        foreach($rows as $row) { ?>
-                                       <option value="<?php echo $row['idDomaine'];?>">
+                                       <option value="<?php echo $row['NomDomaine'];?>" >
                                          <?php echo $row['NomDomaine'];?>
                                        </option>
                                          <?php }
@@ -98,10 +130,10 @@
                             <td>
                                 <select name="categorie" id="categorie" required>
                                     <?php
-                                    $res=$pdo->query('SELECT *FROM Categories');
+                                    $res=$conn->query('SELECT *FROM Categories');
                                     $rows=$res->fetchAll(PDO::FETCH_ASSOC);
                                     foreach($rows as $row) { ?>
-                                    <option value="<?php echo $row['idCategorie'];?>">
+                                    <option value="<?php echo $row['NomCategorie'];?>" >
                                         <?php echo $row['NomCategorie'];?>
                                     </option>
                                         <?php }
@@ -114,21 +146,21 @@
                             <td><input type="text" max="10" name="ref" required></td>
                         </tr>
                         <tr>
-                            <td>Poste:</td>
-                            <td><input type="text" required></td>
-                        </tr>
-                        <tr>
                             <td>Date de début:</td>
                             <td><input type="date" name="date" required></td>
                         </tr>
                         <tr>
                             <td>Plus d'informations?</td>
-                            <td><textarea  id="text" cols="40" rows="5" placeholder="Description....." required></textarea>
+                            <td><textarea name="description" id="text" cols="40" rows="5" placeholder="Description....." required></textarea>
                                 <p id="indication"></p></td>
                         </tr>
                         <tr>
-                            <td><input type="submit" value="Enregistrer"></td>
-                            <td><input type="reset" value="Annuler"></td>
+                            <td>
+                                <input type="submit" name="valider" value="Enregistrer">
+                            </td>
+                            <td>
+                                <input type="reset" value="Annuler">
+                            </td>
                         </tr>
                     </table>
                 </form> 
