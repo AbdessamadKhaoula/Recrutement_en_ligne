@@ -1,0 +1,43 @@
+.annonce{
+    margin: 10px;
+    padding: 10px;
+    background-color: antiquewhite;
+    border: 2px rgb(102, 41, 41) solid;
+    border-radius: 5px;
+    width: 80%;
+}
+h3{
+    color: rgb(34, 34, 117);
+    padding: 3px;
+    text-align: center;
+}
+.annonce i{
+    color: #631010;
+}
+.btn1{
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 10px;
+    background-color: rgb(219, 168, 243);
+    color: black;
+}
+.pos{
+    display: flex;
+    justify-content: space-around;
+}
+hr{
+    margin: 8px;
+    width: 70%;
+}
+.offre{
+    margin: 15px;
+    font-size: 15px;
+    color: blue;
+}
+input{
+    border-radius: 5px;
+    padding: 5px;
+}
+#chercher{
+    background-color: rgb(129, 209, 172);
+}

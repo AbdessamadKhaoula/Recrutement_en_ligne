@@ -15,11 +15,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../styleOffre.css">
         <link rel="stylesheet" href="../Formulaire_CV/navbar.css">
         <script src="https://kit.fontawesome.com/b356ad9dc8.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../footer.css">
-        <title>Espace Candidats</title>
+        <title>Espace Recruteur</title>
     </head>
     <body>
         <header>
@@ -36,15 +36,15 @@
 
                     </li>
                     <li>
-                        <a href="index.php">Candidats</a>
+                        <a href="../InscriptionCandidat/index.php">Candidats</a>
 
                     </li>
                     <li>
-                        <a href="../inscriptionrecruteur/index.php">Recreteurs</a>
+                        <a href="index.php">Recreteurs</a>
 
                     </li>
                     <li>
-                        <a href="#Contacts">Contacts</a>
+                        <a id="active" href="#Contacts">Contacts</a>
                     </li>
                     <li>
                         <a href="deconnexion.php">Déconnecter</a>
@@ -62,13 +62,29 @@
                 <?=$_SESSION["nomPrenom"]?>
                 </span>!!
                 </h1>
-                <ul>
-                    <li>
-                        <a class="CV" href="../Formulaire_CV/Candidat_CV.php"> <strong>Remplir votre cv</strong></a>
-                    </li>
-                </ul>
+                <br>
+
+
+                <form action="" method="POST">
+                    <input type="text" name="domaine" placeholder="enter le domaine" >
+                    <input type="text" name="categorie" placeholder="enter la categorie" >
+                    <input type="submit" id="chercher" name="valider" value="chercher" >
+                </form>
+
+                <br>
+                <?php
+                  if(isset($valider)){
+                    include("../connexion.php");
+                    $res=$conn->prepare("select * from candidatcv where domaine=? and categorie=? order by
+                    score ,dureeExp desc");
+                    $res->setFetchMode(PDO::FETCH_ASSOC);
+                    $res->execute(array($mail,md5($mdp)));
+                    $tab=$res->fetchAll();
+                  }
+                ?>
             </section>
         </main>
+
 
         <?php     include('../footer.php');  ?>
         <script>src="script.js"</script>

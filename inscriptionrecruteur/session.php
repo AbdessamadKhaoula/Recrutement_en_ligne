@@ -15,7 +15,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../styleOffre.css">
         <link rel="stylesheet" href="../Formulaire_CV/navbar.css">
         <script src="https://kit.fontawesome.com/b356ad9dc8.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../footer.css">
@@ -47,7 +47,7 @@
                         <a id="active" href="#Contacts">Contacts</a>
                     </li>
                     <li>
-                        <a href="deconnexion.php">Deconnecter</a>
+                        <a href="deconnexion.php">Déconnecter</a>
                     </li>
                 </ul>
             </nav>
@@ -62,11 +62,66 @@
                 <?=$_SESSION["nomPrenom"]?>
                 </span>!!
                 </h1>
-                <ul>
+                <br>
+                <ul class="pos">
                     <li>
-                        <a class="CV" href="../Offre_Form/Annonce.php">Remplir vos annonces</a>
+                        <a class="btn1" href="../Offre_Form/Annonce.php"> <strong>Créer une annonce</strong></a>
+                    </li>
+                    <li>
+                       <a class="btn1" href="chercheCan.php"> <strong>Chercher les candidats</strong></a>
                     </li>
                 </ul>
+                <br>
+
+                <p class="offre">Voici vos annonces:</p>
+                <?php 
+                       include("../connexion.php");
+                       $sql="SELECT *from annonce";
+                       $stmt=$conn->prepare($sql);
+                       $stmt->execute();
+                       $resultat=$stmt->fetchAll();
+
+                       foreach($resultat as $row){
+                        if($row['mail']==$_SESSION['mail']){
+                        ?>
+                        <div class="annonce">
+                            <h3>La societé 
+                        <?php echo($row['societe']); ?>        
+                            </h3>
+                            <p>  
+                                Propose pour vous un ofrre <?php
+                                 if($row['type']=="Stage") echo('de stage, ');
+                                 else echo('d\'emploi, ');
+                                 echo  "dans le domaine ".$row['domaine'].".";
+
+                                ?>
+                                <hr>
+                                A partir du date : <?php
+                                echo($row['dateDebut']);
+                                ?>
+                                <hr>
+                                <i>
+                                    <strong>Description d'offre: </strong>
+                                    <br>
+                                  <?php echo($row['description']); ?>  
+                                </i>
+                                <hr>
+                                <h5>
+                                    Le candidat doit avoir un diplome :
+                                  <?php echo($row['categorie']); ?>  en  <?php echo($row['domaine']); ?>
+
+                                </h5><hr>
+                                <h4>
+                                    Si vous etes interesse par cette offre, veuillez envoyer votre candidature a l'adresse 
+                                    e-mail suivante:
+                                    <b>
+                                       <?php echo($row['mail']); ?>
+                                    </b>
+                                </h4>
+
+                            </p>
+                        </div><br><br>
+                      <?php }}?>
             </section>
         </main>
 
