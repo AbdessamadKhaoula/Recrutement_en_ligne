@@ -15,6 +15,7 @@ img{
 }
 section{
     margin: 100px 0px;
+    min-height: 450px;
 }
 .icon{
     width: 100px;

@@ -132,3 +132,9 @@ section{
 
 
 
+#message{
+	text-align:center;
+	padding:5px;
+    border-radius: 1px;
+	background-color:rgb(255, 148, 166);
+}

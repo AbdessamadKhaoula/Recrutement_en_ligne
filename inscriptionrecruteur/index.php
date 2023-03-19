@@ -14,7 +14,7 @@
 			$message="<li>Mauvais mail ou mot de passe!</li>";
 		else{
 			$_SESSION['mail']=$_POST["email"];
-			$_SESSION["nomPrenom"]=strtoupper($tab[0]["nomRecruteur"]." ".$tab[0]["prenomRecruteur"]);
+			$_SESSION["Rec"]=strtoupper($tab[0]["nomRecruteur"]." ".$tab[0]["prenomRecruteur"]);
             if(isset($_POST['check'])){
                 setcookie("mail",$_SESSION['mail'],time()+365*24*3600);
                 setcookie("mdp",$_POST['pass'],time()+365*24*3600);
