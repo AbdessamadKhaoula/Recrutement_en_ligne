@@ -18,11 +18,13 @@ h2:hover{
 }
 input,legend,textarea,select{
     width: 45%;
+    background-color: #d0e1df;
 }
 input[type="submit"],
 input[type="reset"]{
-    background:linear-gradient(rgb(62, 76, 207),rgb(89, 124, 238));
+    background:linear-gradient(rgb(13, 80, 88),rgb(70, 124, 131));
     color: #ffffff;
+    font-size: 20px;
     border-radius: 7px;
     padding: 7px;
     width: 30%;
@@ -35,9 +37,10 @@ input[type="reset"]:hover{
     bottom: 0px;
 }
 fieldset{
-    background-color: rgb(58, 68, 68);
+    background-color: rgb(67, 75, 75);
     color: snow;
 }
+
 textarea,input,fieldset,select{
     border: 1px rgb(102, 188, 190) solid;
     border-radius: 5px;
@@ -47,6 +50,7 @@ textarea,input,fieldset,select{
 } 
 form{
     border: 1px rgb(63, 131, 131) solid;
+    background-color: rgb(197 197 197);
     border-radius:0px 20px ;
     padding: 4%;
     box-shadow:5px 5px 10px rgb(104, 140, 143);

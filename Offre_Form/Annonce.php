@@ -71,7 +71,10 @@
                         <tr>
                             <td>Emploi ou Stage?</td> 
                             <td>
-                                <input type="text" name="type" required>
+                                <select  name="type" required>
+                                   <option value="Stage">Stage</option>
+                                   <option value="Emploi">Emploi</option>
+                                </select>
                             </td>
                         </tr>
                         <tr>
@@ -81,11 +84,10 @@
                                  <?php
                                     // Connexion à la base de données MySQL
                                      require_once('../connexion.php');
-                                     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-                                     $res=$pdo->query('SELECT *FROM Domaines');
+                                     $res=$conn->query('SELECT *FROM Domaines');
                                      $rows=$res->fetchAll(PDO::FETCH_ASSOC);
                                        foreach($rows as $row) { ?>
-                                       <option value="<?php echo $row['idDomaine'];?>">
+                                       <option value="<?php echo $row['NomDomaine'];?>name" >
                                          <?php echo $row['NomDomaine'];?>
                                        </option>
                                          <?php }
@@ -98,10 +100,10 @@
                             <td>
                                 <select name="categorie" id="categorie" required>
                                     <?php
-                                    $res=$pdo->query('SELECT *FROM Categories');
+                                    $res=$conn->query('SELECT *FROM Categories');
                                     $rows=$res->fetchAll(PDO::FETCH_ASSOC);
                                     foreach($rows as $row) { ?>
-                                    <option value="<?php echo $row['idCategorie'];?>">
+                                    <option value="<?php echo $row['NomCategorie'];?>name" >
                                         <?php echo $row['NomCategorie'];?>
                                     </option>
                                         <?php }
@@ -127,8 +129,12 @@
                                 <p id="indication"></p></td>
                         </tr>
                         <tr>
-                            <td><input type="submit" value="Enregistrer"></td>
-                            <td><input type="reset" value="Annuler"></td>
+                            <td>
+                                <input type="submit" value="Enregistrer">
+                            </td>
+                            <td>
+                                <input type="reset" value="Annuler">
+                            </td>
                         </tr>
                     </table>
                 </form> 
