@@ -65,8 +65,31 @@
                 <h5>Le classement des candidats:</h5>
                 <hr>
                 <form action="" method="POST">
-                    <input type="text" name="domaine" placeholder="enter le domaine" >
-                    <input type="text" name="categorie" placeholder="enter la categorie" >
+                   <select name="domaine"  required>
+                    <?php
+                    // Connexion à la base de données MySQL
+                        require_once('../connexion.php');
+                        $res=$conn->query('SELECT *FROM Domaines');
+                        $rows=$res->fetchAll(PDO::FETCH_ASSOC);
+                        foreach($rows as $row) { ?>
+                        <option value="<?php echo $row['NomDomaine'];?>" >
+                            <?php echo $row['NomDomaine'];?>
+                        </option>
+                            <?php }
+                        ?>
+                    </select>
+                    
+                    <select name="categorie" id="categorie" required>
+                        <?php
+                        $res=$conn->query('SELECT *FROM Categories');
+                        $rows=$res->fetchAll(PDO::FETCH_ASSOC);
+                        foreach($rows as $row) { ?>
+                        <option value="<?php echo $row['NomCategorie'];?>" >
+                            <?php echo $row['NomCategorie'];?>
+                        </option>
+                            <?php }
+                        ?>
+                    </select>
                     <input type="submit" id="chercher" name="valider" value="Chercher" >
                 </form>
 

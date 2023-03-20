@@ -1,6 +1,5 @@
 <?php
 
-
     session_start();
     if(!isset($_SESSION["mail"])){
         header("location:../InscriptionCandidat/index.php");
@@ -49,6 +48,7 @@
         $datesDebutFor=$_POST['dateDebutFor'];
         $datesFinFor=$_POST['dateFinFor'];
 
+        if(!empty($nomFor) && !empty($etab) && !empty($datesDebutFor) && !empty($datesFinFor) ){
         for ($i = 0; $i < count($nomFor); $i++) {
             $nom_i = $nomFor[$i];
             $etab_i = $etab[$i];
@@ -57,7 +57,7 @@
 
             $stmt = $conn->prepare("INSERT INTO formations (nomForation,etablisement,dateDebut,dateFin,idCandidat)   VALUES (?,?,?,?,?)");
             $stmt->execute([$nom_i, $etab_i, $dateDebut_i, $dateFin_i,$id]);
-        }
+        }}
         //Récupération des experiences
         $nomexp=$_POST['exp_nom'];
         $societes=$_POST['societe'];
@@ -65,6 +65,7 @@
         $datesDebutexp=$_POST['dateDebutExp'];
         $datesFinexp=$_POST['dateFinExp'];
 
+        if(!empty($nomexp) && !empty($societes) && !empty($types) && !empty($datesDebutexp) && !empty($datesFinexp) ){
         for ($i = 0; $i < count($nomexp); $i++) {
             $nom_i = $nomexp[$i];
             $societe_i = $societes[$i];
@@ -74,18 +75,18 @@
 
             $stmt = $conn->prepare("INSERT INTO experiences (nomExp,societe,type,dateDebut,dateFin,idCandidat)   VALUES (?,?,?,?,?,?)");
             $stmt->execute([$nom_i, $societe_i, $type_i, $dateDebut_i, $dateFin_i,$id]);
-        }
+        }}
 
          // Récupération des competences
             
          $nomcomp=$_POST['competences'];
-
+         if(!empty($nomcomp)){
          for ($i = 0; $i < count($nomcomp); $i++) {
              $nom_i = $nomcomp[$i];
  
              $stmt = $conn->prepare("INSERT INTO competences(nom,idCandidat)   VALUES (?,?)");
              $stmt->execute([$nom_i,$id]);
-         }
+         }}
          header("location:../InscriptionCandidat/session.php");
     }
    }else{
@@ -118,6 +119,8 @@
         $datesDebutFor=$_POST['dateDebutFor'];
         $datesFinFor=$_POST['dateFinFor'];
 
+        
+        if(!empty($nomFor) && !empty($etab) && !empty($datesDebutFor) && !empty($datesFinFor) ){
         for ($i = 0; $i < count($nomFor); $i++) {
             $nom_i = $nomFor[$i];
             $etab_i = $etab[$i];
@@ -126,13 +129,15 @@
 
             $stmt = $conn->prepare("INSERT INTO formations (nomForation,etablisement,dateDebut,dateFin,idCandidat)   VALUES (?,?,?,?,?)");
             $stmt->execute([$nom_i, $etab_i, $dateDebut_i, $dateFin_i,$id]);
-        }
+        }}
         //Récupération des nouvelles experiences
         $nomexp=$_POST['exp_nom'];
         $societes=$_POST['societe'];
         $types=$_POST['type'];
         $datesDebutexp=$_POST['dateDebutExp'];
         $datesFinexp=$_POST['dateFinExp'];
+
+        if(!empty($nomexp) && !empty($societes) && !empty($types) && !empty($datesDebutexp) && !empty($datesFinexp) ){
 
         for ($i = 0; $i < count($nomexp); $i++) {
             $nom_i = $nomexp[$i];
@@ -143,18 +148,19 @@
 
             $stmt = $conn->prepare("INSERT INTO experiences (nomExp,societe,type,dateDebut,dateFin,idCandidat)   VALUES (?,?,?,?,?,?)");
             $stmt->execute([$nom_i, $societe_i, $type_i, $dateDebut_i, $dateFin_i,$id]);
-        }
+        }}
 
          // Récupération des nouvelles competences
             
          $nomcomp=$_POST['competences'];
 
+         if(!empty($nomcomp)){
          for ($i = 0; $i < count($nomcomp); $i++) {
              $nom_i = $nomcomp[$i];
  
              $stmt = $conn->prepare("INSERT INTO competences(nom,idCandidat)   VALUES (?,?)");
              $stmt->execute([$nom_i,$id]);
-         }
+         }}
          
    }
    header("location:../InscriptionCandidat/session.php");

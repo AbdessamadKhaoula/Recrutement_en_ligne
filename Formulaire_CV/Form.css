@@ -50,7 +50,7 @@ textarea,input,fieldset,select{
 } 
 form{
     border: 1px rgb(63, 131, 131) solid;
-    background-color: rgb(197 197 197);
+    background-color: rgb(101 116 116);
     border-radius:0px 20px ;
     padding: 4%;
     box-shadow:5px 5px 10px rgb(104, 140, 143);

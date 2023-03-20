@@ -10,7 +10,7 @@
 img{
    float: left;
    width: 25%;
-   height: 400px;
+   height: 370px;
 
 }
 section{
@@ -80,5 +80,6 @@ section{
 @media only screen and (max-width: 991px) {
     .main{
         flex-direction: column;
+        height: 120vh;
     }
 }

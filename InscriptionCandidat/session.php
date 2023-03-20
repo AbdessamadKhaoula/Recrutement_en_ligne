@@ -66,7 +66,19 @@
                     </li>
                     <li>
                     <form action="" method="POST">
-                        <input type="text" name="domaine" placeholder="enter le domaine" >
+                    <select name="domaine"  required>
+                    <?php
+                    // Connexion à la base de données MySQL
+                        require_once('../connexion.php');
+                        $res=$conn->query('SELECT *FROM Domaines');
+                        $rows=$res->fetchAll(PDO::FETCH_ASSOC);
+                        foreach($rows as $row) { ?>
+                        <option value="<?php echo $row['NomDomaine'];?>" >
+                            <?php echo $row['NomDomaine'];?>
+                        </option>
+                            <?php }
+                        ?>
+                    </select>
                         <input type="submit" id="chercher" name="valider" value="Chercher" >
                     </form>
                     </li>
