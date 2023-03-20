@@ -154,7 +154,7 @@
                         <input type="number" min='0'required name="dureeExp">
                         </div>
                         <!-- input pour calculer le score-->
-                        <input type="number" value="3.25" min="3.25" id="score" name="score" style="display:none"> 
+                        <input type="number" value="0" min="0" id="score" name="score" style="display:none"> 
                     </fieldset>
                 </div>
                 <br>
