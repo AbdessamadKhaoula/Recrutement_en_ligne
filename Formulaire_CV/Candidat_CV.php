@@ -328,11 +328,18 @@
                 var nouveauLabelType = document.createElement("label");
                 nouveauLabelType .innerHTML = "Stage ou Emploi?";
                 nouvelFieldset.appendChild(nouveauLabelType );
-                var nouvelInputType = document.createElement("input");
-                nouvelInputType.setAttribute("type", "text");
-                nouvelInputType.setAttribute("name", "type[]");
-                nouvelInputType.setAttribute("required", "required");
-                nouvelFieldset.appendChild(nouvelInputType);
+                var nouvelSelectType = document.createElement("select");
+                nouvelSelectType.setAttribute("name", "type[]");
+                nouvelSelectType.setAttribute("required", "required");
+                var opt1=document.createElement("option");
+                var opt2=document.createElement("option");
+                opt1.setAttribute("value","Stage");
+                opt2.setAttribute("value","Emploi");
+                opt1.innerHTML="Stage";
+                opt2.innerHTML="Emploi";
+                nouvelSelectType.appendChild(opt1);
+                nouvelSelectType.appendChild(opt2);
+                nouvelFieldset.appendChild(nouvelSelectType);
                 
 
                 nouvelFieldset.appendChild(document.createElement("br"));
