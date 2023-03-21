@@ -3,6 +3,10 @@ fieldset label{
     width: 30%;
     margin: 4px 0;
 }
+.insert{
+    padding: 15px;
+    width: 100%;
+}
 h2{
     background-color: rgb(3, 24, 21);
     color: rgb(156, 238, 238);
@@ -50,7 +54,7 @@ textarea,input,fieldset,select{
 } 
 form{
     border: 1px rgb(63, 131, 131) solid;
-    background-color: rgb(101 116 116);
+    background-color:rgb(28 32 32);
     border-radius:0px 20px ;
     padding: 4%;
     box-shadow:5px 5px 10px rgb(104, 140, 143);

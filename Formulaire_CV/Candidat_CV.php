@@ -76,40 +76,20 @@
                 
                 </fieldset>
                 <br>
-                <div >
-                    <fieldset id="formations">
-                        <legend>Formations</legend>
-                
-                        <br>
-                       
-                        <button type="button" onclick="ajouterFormation()">Ajouter une formation</button>                        
-                     </fieldset>
+                <div id="formations">    
+                    <button type="button" class="insert" onclick="ajouterFormation()">Ajouter une formation</button>                        
                 </div>  
                 <br>
-                <div >
-                    <fieldset id="expriences">
-                        <legend>Expriences Professionnelles</legend>
-                         
-                         <br>
-                        <button type="button" onclick="ajouterExprience()">Ajouter une exprience</button>  
-                    </fieldset>
+                <div id="expriences">
+                 <button type="button" class="insert"  onclick="ajouterExprience()">Ajouter une exprience</button> 
                 </div>
                 <br>
-                <div >
-                    <fieldset id="Competences">
-                        <legend>Les Compétences</legend>
-                        <br>
-                        <button type="button" onclick="ajouterCompetence()">Ajouter une  competence</button>      
-                    </fieldset>
+                <div id="Competences">
+                    <button type="button"class="insert"  onclick="ajouterCompetence()">Ajouter une  competence</button>    
                 </div>
                 <br>
-                <div >
-                    <fieldset id="Langues">
-                        <legend>Les Langues</legend>
-                        <br>
-
-                        <button type="button" onclick="ajouterLangue()">Ajouter une langue</button>      
-                    </fieldset>
+                <div id="Langues">
+                  <button type="button" class="insert" onclick="ajouterLangue()">Ajouter une langue</button>      
                 </div>
                 <br>
                 <div id="cat_domaine">
@@ -178,31 +158,37 @@
                 
 
                 score.value=parseFloat(score.value)+0.25;
-                var Langues = document.getElementById("Langues");
-                var div = document.createElement("div");
+
+                var divLangues = document.getElementById("Langues");
+                var nouvelFieldset = document.createElement("fieldset");
+                var nouvelleLegende = document.createElement("legend");
+                nouvelleLegende.innerHTML = "Langues";
+                nouvelFieldset.appendChild(nouvelleLegende);
+
                 var nouveauLabelLangue = document.createElement("label");
+                nouveauLabelLangue.className="langue";
                 nouveauLabelLangue.innerHTML = "Langue :";
-                div.appendChild(nouveauLabelLangue);
+                nouvelFieldset.appendChild(nouveauLabelLangue);
                 var nouvelInputLangue = document.createElement("input");
                 nouvelInputLangue.setAttribute("type", "text");
                 nouvelInputLangue.setAttribute("name", "langue[]");
                 nouvelInputLangue.setAttribute("required", "required");
-                
-                div.appendChild(nouvelInputLangue);
-                div.appendChild(document.createElement("br"));
+                nouvelFieldset.appendChild(nouvelInputLangue);
+                nouvelFieldset.appendChild(document.createElement("br"));
+                divLangues.appendChild(nouvelFieldset);
 
-                Langues.appendChild(div);
+                divLangues.appendChild(nouvelFieldset);
                 var boutonSupprimer = document.createElement("button");
                 boutonSupprimer.innerHTML = "Supprimer";
                 boutonSupprimer.addEventListener("click", function() {
-                div.parentNode.removeChild(div);
+                nouvelFieldset.parentNode.removeChild(nouvelFieldset);
                 
 
                 score.value=parseFloat(score.value)-0.25;
                 });
                 
-                div.appendChild(document.createElement("br"));
-                div.appendChild(boutonSupprimer);
+                nouvelFieldset.appendChild(document.createElement("br"));
+                nouvelFieldset.appendChild(boutonSupprimer);
             }
             function ajouterCompetence() {
 
@@ -210,92 +196,101 @@
 
                 score.value=parseFloat(score.value)+1;
 
-                var Comp = document.getElementById("Competences");
+                var divComp = document.getElementById("Competences");
+                var nouvelFieldset = document.createElement("fieldset");
+                var nouvelleLegende = document.createElement("legend");
+                nouvelleLegende.innerHTML = "Les Compétences";
+                nouvelFieldset.appendChild(nouvelleLegende);
 
-                var div = document.createElement("div");
                 var nouveauLabelComp = document.createElement("label");
                 nouveauLabelComp.innerHTML = "Compétence:";
-                div.appendChild(nouveauLabelComp);
+                nouvelFieldset.appendChild(nouveauLabelComp);
                 var nouvelInputComp = document.createElement("input");
                 nouvelInputComp.setAttribute("type", "text");
                 nouvelInputComp.setAttribute("name", "competences[]");
                 nouvelInputComp.setAttribute("required", "required");
-                div.appendChild(nouvelInputComp);
-                div.appendChild(document.createElement("br"));
-                Comp.appendChild(div);
+                nouvelFieldset.appendChild(nouvelInputComp);
+                nouvelFieldset.appendChild(document.createElement("br"));
+                divComp.appendChild(nouvelFieldset);
 
+                divComp.appendChild(nouvelFieldset);
                 var boutonSupprimer = document.createElement("button");
                 boutonSupprimer.innerHTML = "Supprimer";
                 boutonSupprimer.addEventListener("click", function() {
-                div.parentNode.removeChild(div);
+                nouvelFieldset.parentNode.removeChild(nouvelFieldset);
 
                 
 
                 score.value=parseFloat(score.value)-1;
                 });
                 
-                div.appendChild(document.createElement("br"));
-                div.appendChild(boutonSupprimer);
+                nouvelFieldset.appendChild(document.createElement("br"));
+                nouvelFieldset.appendChild(boutonSupprimer);
             }
             function ajouterFormation() {
-                
 
                 score.value=parseFloat(score.value)+1;
-                var Formations = document.getElementById("formations");
-                var div = document.createElement("div");
+                var divFormations = document.getElementById("formations");
+
+                var nouvelFieldset = document.createElement("fieldset");
+
+                var nouvelleLegende = document.createElement("legend");
+                nouvelleLegende.innerHTML = "Formations";
+                nouvelFieldset.appendChild(nouvelleLegende);
 
                 var nouveauLabelNom = document.createElement("label");
                 nouveauLabelNom.innerHTML = "Nom:";
-                div.appendChild(nouveauLabelNom);
+                nouvelFieldset.appendChild(nouveauLabelNom);
                 var nouvelInputNom = document.createElement("input");
                 nouvelInputNom.setAttribute("type", "text");
                 nouvelInputNom.setAttribute("name", "formation_nom[]");
                 nouvelInputNom.setAttribute("required", "required");
-                div.appendChild(nouvelInputNom);
-                div.appendChild(document.createElement("br"));
+                nouvelFieldset.appendChild(nouvelInputNom);
+                nouvelFieldset.appendChild(document.createElement("br"));
 
                 var nouveauLabelEtablissemet = document.createElement("label");
                 nouveauLabelEtablissemet .innerHTML = "Nom d'établisement:";
-                div.appendChild(nouveauLabelEtablissemet );
+                nouvelFieldset.appendChild(nouveauLabelEtablissemet );
                 var nouvelInputEtablissemet  = document.createElement("input");
                 nouvelInputEtablissemet.setAttribute("type", "text");
                 nouvelInputEtablissemet.setAttribute("name", "etablisement[]");
                 nouvelInputEtablissemet.setAttribute("required", "required");
-                div.appendChild(nouvelInputEtablissemet);
-                div.appendChild(document.createElement("br"));
+                nouvelFieldset.appendChild(nouvelInputEtablissemet);
+                nouvelFieldset.appendChild(document.createElement("br"));
 
                 var nouveauLabelDebut = document.createElement("label");
                 nouveauLabelDebut.innerHTML = "Date de début:";
-                div.appendChild(nouveauLabelDebut);
+                nouvelFieldset.appendChild(nouveauLabelDebut);
                 var nouvelInputDebut = document.createElement("input");
                 nouvelInputDebut.setAttribute("type", "date");
                 nouvelInputDebut.setAttribute("name", "dateDebutFor[]");
                 nouvelInputDebut.setAttribute("required", "required");
-                div.appendChild(nouvelInputDebut);
-                div.appendChild(document.createElement("br"));
+                nouvelFieldset.appendChild(nouvelInputDebut);
+                nouvelFieldset.appendChild(document.createElement("br"));
 
                 var nouveauLabelFin = document.createElement("label");
                 nouveauLabelFin.innerHTML = "Date de fin:";
-                div.appendChild(nouveauLabelFin);
+                nouvelFieldset.appendChild(nouveauLabelFin);
                 var nouvelInputFin = document.createElement("input");
                 nouvelInputFin.setAttribute("type", "date");
                 nouvelInputFin.setAttribute("name", "dateFinFor[]");
                 nouvelInputFin.setAttribute("required", "required");
-                div.appendChild(nouvelInputFin);
-                div.appendChild(document.createElement("br"));
+                nouvelFieldset.appendChild(nouvelInputFin);
+                nouvelFieldset.appendChild(document.createElement("br"));
 
-                Formations.appendChild(div);
+                divFormations.appendChild(nouvelFieldset);
                 var boutonSupprimer = document.createElement("button");
                 boutonSupprimer.innerHTML = "Supprimer";
                 boutonSupprimer.addEventListener("click", function() {
-                div.parentNode.removeChild(div);
+                nouvelFieldset.parentNode.removeChild(nouvelFieldset);
                 
 
                 score.value=parseFloat(score.value)-1;
+
                 });
                 
-                div.appendChild(document.createElement("br"));
-                div.appendChild(boutonSupprimer);
+                nouvelFieldset.appendChild(document.createElement("br"));
+                nouvelFieldset.appendChild(boutonSupprimer);
 
             }
             function ajouterExprience() {
@@ -304,83 +299,77 @@
 
                 score.value=parseFloat(score.value)+1;
 
-                var Exp = document.getElementById("expriences");
-                
-                var div = document.createElement("div");
+                var divExp = document.getElementById("expriences");
+                var nouvelFieldset = document.createElement("fieldset");
+                var nouvelleLegende = document.createElement("legend");
+                nouvelleLegende.innerHTML = "Expriences Professionnelles";
+                nouvelFieldset.appendChild(nouvelleLegende);
+
                 var nouveauLabelNom = document.createElement("label");
                 nouveauLabelNom.innerHTML = "Nom:";
-                div.appendChild(nouveauLabelNom);
+                nouvelFieldset.appendChild(nouveauLabelNom);
                 var nouvelInputNom = document.createElement("input");
                 nouvelInputNom.setAttribute("type", "text");
                 nouvelInputNom.setAttribute("name", "exp_nom[]");
                 nouvelInputNom.setAttribute("required", "required");
-                div.appendChild(nouvelInputNom);
-                div.appendChild(document.createElement("br"));
+                nouvelFieldset.appendChild(nouvelInputNom);
+                nouvelFieldset.appendChild(document.createElement("br"));
 
                 var nouveauLabelSociete = document.createElement("label");
                 nouveauLabelSociete .innerHTML = "Nom de la societe:";
-                div.appendChild(nouveauLabelSociete );
+                nouvelFieldset.appendChild(nouveauLabelSociete );
                 var nouvelInputSociete  = document.createElement("input");
                 nouvelInputSociete.setAttribute("type", "text");
                 nouvelInputSociete.setAttribute("name", "societe[]");
                 nouvelInputSociete.setAttribute("required", "required");
-                div.appendChild(nouvelInputSociete);
-                div.appendChild(document.createElement("br"));
+                nouvelFieldset.appendChild(nouvelInputSociete);
+                nouvelFieldset.appendChild(document.createElement("br"));
 
                 var nouveauLabelType = document.createElement("label");
                 nouveauLabelType .innerHTML = "Stage ou Emploi?";
-                div.appendChild(nouveauLabelType );
-                var nouvelSelectType = document.createElement("select");
-                nouvelSelectType.setAttribute("name", "type[]");
-                nouvelSelectType.setAttribute("required", "required");
-                var opt1=document.createElement("option");
-                var opt2=document.createElement("option");
-                opt1.setAttribute("value", "Stage");
-                opt1.innerHTML = "Stage";
-                opt2.setAttribute("value", "Emploi");
-                opt2.innerHTML = "Emploi";
-                nouvelSelectType.appendChild(opt1);
-                nouvelSelectType.appendChild(opt2);
-
-            
-                div.appendChild(nouvelSelectType);
+                nouvelFieldset.appendChild(nouveauLabelType );
+                var nouvelInputType = document.createElement("input");
+                nouvelInputType.setAttribute("type", "text");
+                nouvelInputType.setAttribute("name", "type[]");
+                nouvelInputType.setAttribute("required", "required");
+                nouvelFieldset.appendChild(nouvelInputType);
                 
 
-                div.appendChild(document.createElement("br"));
+                nouvelFieldset.appendChild(document.createElement("br"));
 
                 var nouveauLabelDebut = document.createElement("label");
                 nouveauLabelDebut.innerHTML = "Date de début:";
-                div.appendChild(nouveauLabelDebut);
+                nouvelFieldset.appendChild(nouveauLabelDebut);
                 var nouvelInputDebut = document.createElement("input");
                 nouvelInputDebut.setAttribute("type", "date");
                 nouvelInputDebut.setAttribute("name", "dateDebutExp[]");
                 nouvelInputDebut.setAttribute("required", "required");
-                div.appendChild(nouvelInputDebut);
-                div.appendChild(document.createElement("br"));
+                nouvelFieldset.appendChild(nouvelInputDebut);
+                nouvelFieldset.appendChild(document.createElement("br"));
 
                 var nouveauLabelFin = document.createElement("label");
                 nouveauLabelFin.innerHTML = "Date de fin:";
-                div.appendChild(nouveauLabelFin);
+                nouvelFieldset.appendChild(nouveauLabelFin);
                 var nouvelInputFin = document.createElement("input");
                 nouvelInputFin.setAttribute("type", "date");
                 nouvelInputFin.setAttribute("name", "dateFinExp[]");
                 nouvelInputFin.setAttribute("required", "required");
-                div.appendChild(nouvelInputFin);
-                div.appendChild(document.createElement("br"));
+                nouvelFieldset.appendChild(nouvelInputFin);
+                nouvelFieldset.appendChild(document.createElement("br"));
 
-                Exp.appendChild(div);
+                divExp.appendChild(nouvelFieldset);
                 var boutonSupprimer = document.createElement("button");
                 boutonSupprimer.innerHTML = "Supprimer";
                 boutonSupprimer.addEventListener("click", function() {
-                div.parentNode.removeChild(div);
+                nouvelFieldset.parentNode.removeChild(nouvelFieldset);
 
                 
 
                 score.value=parseFloat(score.value)-1;
                 });
 
-                div.appendChild(document.createElement("br"));
-                div.appendChild(boutonSupprimer);
+                nouvelFieldset.appendChild(document.createElement("br"));
+                nouvelFieldset.appendChild(boutonSupprimer);
             }
         </script>
     </body>
